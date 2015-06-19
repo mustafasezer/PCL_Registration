@@ -14,15 +14,17 @@
 
 class pcl_tools
 {
+public:
+    pcl_tools();
     struct transformation_relation{
         //int id;
+        bool is_parent;
         int parent_id;
+        Eigen::Matrix4f init_guess;
         Eigen::Matrix4f T;
         bool completed;
         //struct transformation_relation* parent;
     };
-public:
-    pcl_tools();
     Eigen::Matrix4f apply_icp(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out, bool viewResult=true);
     Eigen::Matrix4f apply_ndt(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl::PointCloud<pcl::PointXYZ>::Ptr target_cloud, Eigen::Matrix4f init_guess);
     int apply_icp(std::string path_in, std::string path_out);
@@ -42,6 +44,8 @@ public:
     Eigen::Matrix4f getInitialGuess(int input, int target);
     Eigen::Matrix4f getTransformation(int input, int target);
     int getInitialGuesses();
+
+    void rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud);
 
     //pcl::visualization::PCLVisualizer *viewer;
 

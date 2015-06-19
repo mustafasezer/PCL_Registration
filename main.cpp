@@ -64,35 +64,35 @@ showHelp(char * program_name)
     std::cout << "-h:  Show this help." << std::endl;
 }
 
+void create_launch_file(int min_index, int max_index){
+    //Create launch file for icp_result
+    for(int i=min_index; i<=max_index; i++){
+        std::cout << "<node pkg=\"pcl_ros\" type=\"pcd_to_pointcloud\" name=\"cloud_" << i << "\" args=\"/home/mustafasezer/dataset/Downsampled_Projected_3.5_4.5/scan_" << i << ".pcd 0.1\" output=\"screen\">\n\t<param name=\"frame_id\" value=\"iser_transform_1\" />\n\t<remap from=\"cloud_pcd\" to=\"cloud_" << i << "\" />\n</node>\n\n";
+    }
+}
+
 
 int main()
 {
-
-    /*
-     * //Create launch file for icp_result
-    for(int i=2; i<=15; i++){
-        std::cout << "<node pkg=\"pcl_ros\" type=\"pcd_to_pointcloud\" name=\"cloud_" << i << "\" args=\"/home/mustafasezer/dataset/Downsampled_Projected_3.5_4.5/scan_" << i << ".pcd 0.1\" output=\"screen\">\n\t<param name=\"frame_id\" value=\"iser_transform_1\" />\n\t<remap from=\"cloud_pcd\" to=\"cloud_" << i << "\" />\n</node>\n\n";
-    }
-    return 0;
-    */
-
-
     pcl_tools pcl_tool;
 
-    /*pcl_tool.getInitialGuesses();
-    for(int i=0; i<16; i++){
+    pcl_tool.getInitialGuesses();
+    /*for(int i=0; i<43; i++){
         std::cout << i+1 << " to " << pcl_tool.transformations[i].parent_id << std::endl;
         std::cout << pcl_tool.transformations[i].T << std::endl << std::endl;
+        //std::cout << "Parent: " << pcl_tool.transformations[i].is_parent << std::endl << std::endl;
     }
     return 0;*/
 
     fstream icp_result;
-    icp_result.open("/home/mustafasezer/icp_result.txt", ios::out);
+    //icp_result.open("/home/mustafasezer/icp_result.txt", ios::out);
 
     Eigen::Matrix4f overall_transform;
     overall_transform.setIdentity();
-
-    for(int i=2; i<=15; i++){
+/*
+    fstream overall;
+    overall.open("/home/mustafasezer/overall.txt", ios::out);
+    for(int i=1; i<=15; i++){
         stringstream target_filename, input_filename;
         target_filename.clear();
         input_filename.clear();
@@ -159,24 +159,130 @@ int main()
         pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ_filtered = pcl_tool.getSlice(cloud_targ, 2.5, 15);
 
         //Eigen::Matrix4f transform_matrix_ndt = pcl_tool.apply_ndt(cloud_in_transformed_filtered, cloud_targ_filtered, init_guess);
-        Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed_filtered, cloud_targ_filtered, true);
+        Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed_filtered, cloud_targ_filtered, false);
 
-        icp_result << "scan_" << i+1 << " to scan_" << i << std::endl;
-        icp_result << transform_matrix_icp << std::endl << std::endl;
+        overall << "scan_" << i+1 << std::endl;
+        overall << transform_matrix_icp << std::endl << std::endl;
 
         stringstream output_filename;
         output_filename << "/home/mustafasezer/dataset/ICP_Results/scan_" << i+1 << ".pcd";
- //       overall_transform = transform_matrix_icp*cloud_in_transformation*overall_transform;
-
-        pcl_tool.transformations[i-1].T = transform_matrix_icp*cloud_in_transformation;
-        pcl_tool.transformations[i-1].parent_id = i+1;
-
-
-
+        //       overall_transform = transform_matrix_icp*cloud_in_transformation*overall_transform;
 
         overall_transform = overall_transform*transform_matrix_icp*cloud_in_transformation;
         //overall_transform = overall_transform*cloud_in_transformation;
         pcl_tool.savePCD((pcl_tool.transform_pcd(cloud_in, overall_transform)), output_filename.str());
+
+        cloud_in.reset();
+        cloud_targ.reset();
+        cloud_in_transformed.reset();
+    }
+    overall.close();
+    icp_result.close();
+
+    return 0;
+*/
+
+
+
+
+
+
+    for(int i=1; i<=43; i++){
+        if(pcl_tool.transformations[i-1].is_parent){
+            continue;
+        }
+        stringstream target_filename, input_filename;
+        target_filename.clear();
+        input_filename.clear();
+        input_filename << "/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_" << i << ".pcd";
+        target_filename << "/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_" << pcl_tool.transformations[i-1].parent_id << ".pcd";
+        string strtarget_filename = target_filename.str();
+        string strinput_filename = input_filename.str();
+        if (!file_exists (strtarget_filename.c_str()))
+        {
+            std::cerr << target_filename.str() << "does not exist" << std::endl;
+            continue;
+        }
+        else if (!file_exists (strinput_filename.c_str()))
+        {
+            std::cerr << input_filename.str() << "does not exist" << std::endl;
+            continue;
+        }
+
+        //Read input cloud
+        std::cout << "Reading input cloud " << input_filename.str() << std::endl;
+        start_timer_();
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in = pcl_tool.loadPCD(input_filename.str());
+        end_timer_("Input cloud loaded in:");
+
+        if(cloud_in->points.size() == 0){
+            std::cout << input_filename.str() << " empty" << std::endl;
+            continue;
+        }
+
+        //Read target cloud
+        std::cout << "Reading target cloud " << target_filename.str() << std::endl;
+        start_timer_();
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ = pcl_tool.loadPCD(target_filename.str());
+        end_timer_("Target cloud loaded in:");
+
+        if(cloud_targ->points.size() == 0){
+            std::cout << target_filename.str() << " empty" << std::endl;
+            cloud_in.reset();
+            cloud_targ.reset();
+            continue;
+        }
+
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_transformed = pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].init_guess);
+
+        //Eigen::Matrix4f init_guess;
+        //init_guess.setIdentity();
+
+        //Whole data
+        //Eigen::Matrix4f transform_matrix_ndt = pcl_tool.apply_ndt(cloud_in_transformed, cloud_targ, init_guess);
+        //Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed, cloud_targ, true);
+
+
+        //Only specific z range
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed, 2.5, 15);
+        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ_filtered = pcl_tool.getSlice(cloud_targ, 2.5, 15);
+
+        //Eigen::Matrix4f transform_matrix_ndt = pcl_tool.apply_ndt(cloud_in_transformed_filtered, cloud_targ_filtered, init_guess);
+        Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed_filtered, cloud_targ_filtered, false);
+
+        icp_result << "scan_" << i << " to scan_" << pcl_tool.transformations[i-1].parent_id << std::endl;
+        icp_result << transform_matrix_icp << std::endl << std::endl;
+
+        stringstream output_filename;
+        output_filename << "/home/mustafasezer/dataset/ICP_Results/scan_" << i << ".pcd";
+        //       overall_transform = transform_matrix_icp*cloud_in_transformation*overall_transform;
+
+
+
+        //Eigen::Matrix4f parent_transform;
+        //parent_transform.setIdentity();
+        /*pcl_tools::transformation_relation current_transform;
+        current_transform = pcl_tool.transformations[i-1];
+        while(current_transform.is_parent==false){
+            if(pcl_tool.transformations[current_transform.parent_id-1].completed==false){
+                std::cerr << "Parent transformation is not completed for scan_" << i << std::endl;
+                break;
+            }
+            pcl_tool.transformations[i-1].T = pcl_tool.transformations[i-1].T * pcl_tool.transformations[current_transform.parent_id-1].T;
+            current_transform = pcl_tool.transformations[current_transform.parent_id-1];
+        }*/
+        if(pcl_tool.transformations[pcl_tool.transformations[i-1].parent_id-1].completed==false){
+            std::cerr << "Parent transformation is not completed for scan_" << i << std::endl;
+            cloud_in.reset();
+            cloud_targ.reset();
+            cloud_in_transformed.reset();
+            continue;
+        }
+        pcl_tool.transformations[i-1].T = pcl_tool.transformations[pcl_tool.transformations[i-1].parent_id-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;
+        pcl_tool.transformations[i-1].completed = true;
+
+        //pcl_tool.transformations[i-1].T = pcl_tool.transformations[i-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;
+        pcl_tool.savePCD((pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].T)), output_filename.str());
 
         cloud_in.reset();
         cloud_targ.reset();
@@ -369,3 +475,12 @@ return 0;*/
     }
     return 0;
 */
+
+
+/*pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_inp(new pcl::PointCloud<pcl::PointXYZRGB>);
+if (pcl::io::loadPCDFile<pcl::PointXYZRGB> ("/home/mustafasezer/dataset/Downsampled_Cuboids_RGB/scan_1.pcd", *cloud_inp) == -1) //* load the file
+{
+    PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
+    return (-1);
+}
+pcl_tool.rgbVis(cloud_inp);*/

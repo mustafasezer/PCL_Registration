@@ -50,11 +50,14 @@ std::string int2str(int num){
 
 pcl_tools::pcl_tools()
 {
-    transformations[0].parent_id = -5;
+    /*transformations[0].parent_id = -5;
     transformations[0].T.setIdentity();
     transformations[0].completed = true;
-    for(int i=1; i<83; i++){
+    transformations[0].is_parent = true;*/
+    for(int i=0; i<83; i++){
         transformations[i].completed = false;
+        transformations[i].is_parent = false;
+        transformations[i].T.setIdentity();
     }
 }
 
@@ -134,7 +137,7 @@ int pcl_tools::getInitialGuesses(){
             getline(fid, tline);
         }
         if(fid.eof()){
-            std::cout << "Transformation not found" << std::endl;
+            std::cout << "Reached the end of initial guess file" << std::endl;
             fid.close();
             return 1;
         }
@@ -160,11 +163,18 @@ int pcl_tools::getInitialGuesses(){
             fid.close();
             return 1;
         }
+        if(input==target){
+            transformations[input-1].init_guess.setIdentity();
+            transformations[input-1].completed = true;
+            transformations[input-1].is_parent = true;
+            transformations[input-1].parent_id = target;
+            continue;
+        }
         Eigen::Vector3f translation_vector(t1, t2, t3);
         Eigen::Matrix3f rotation_matrix = quaternion_to_rotation(x, y, z, w);
         transformations[input-1].parent_id = target;
-        transformations[input-1].T = createTransformationMatrix(rotation_matrix, translation_vector);
-        transformations[input-1].completed = true;
+        transformations[input-1].init_guess = createTransformationMatrix(rotation_matrix, translation_vector);
+        transformations[input-1].is_parent = false;
     }
     fid.close();
     return 0;
@@ -444,6 +454,23 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<pcl
 }
 
 
+
+void pcl_tools::rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud)
+{
+
+  pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
+
+  viewer.setBackgroundColor (0, 0, 0);
+  pcl::visualization::PointCloudColorHandlerRGBField<pcl::PointXYZRGB> rgb(cloud);
+  viewer.addPointCloud<pcl::PointXYZRGB> (cloud, rgb, "sample cloud");
+  viewer.setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE, 3, "sample cloud");
+
+  while (!viewer.wasStopped ()) { // Display the visualiser until 'q' key is pressed
+      viewer.spinOnce (100);
+      boost::this_thread::sleep (boost::posix_time::microseconds (100000));
+  }
+
+}
 
 
 void pcl_tools::viewPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, string name, int r, int g, int b){
