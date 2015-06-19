@@ -50,6 +50,7 @@ std::string int2str(int num){
 
 pcl_tools::pcl_tools()
 {
+    MAX_NUM_SCANS = 83;
     /*transformations[0].parent_id = -5;
     transformations[0].T.setIdentity();
     transformations[0].completed = true;
@@ -58,6 +59,7 @@ pcl_tools::pcl_tools()
         transformations[i].completed = false;
         transformations[i].is_parent = false;
         transformations[i].T.setIdentity();
+        transformations[i].ok = false;
     }
 }
 
@@ -125,6 +127,24 @@ Eigen::Matrix4f pcl_tools::getInitialGuess(int input, int target){
     fid.close();
 }
 
+int pcl_tools::topMostParent(int id){
+    if(transformations[id-1].ok == false){
+        return -1;
+    }
+    if(transformations[id-1].is_parent){
+        return id;
+    }
+    transformation_relation current_transform;
+    current_transform = transformations[id-1];
+    while(current_transform.is_parent==false){
+        current_transform = transformations[current_transform.parent_id-1];
+        if(current_transform.ok == false){
+            return -1;
+        }
+    }
+    return current_transform.parent_id;
+}
+
 
 int pcl_tools::getInitialGuesses(){
     string tline;
@@ -168,6 +188,7 @@ int pcl_tools::getInitialGuesses(){
             transformations[input-1].completed = true;
             transformations[input-1].is_parent = true;
             transformations[input-1].parent_id = target;
+            transformations[input-1].ok = true;
             continue;
         }
         Eigen::Vector3f translation_vector(t1, t2, t3);
@@ -175,6 +196,7 @@ int pcl_tools::getInitialGuesses(){
         transformations[input-1].parent_id = target;
         transformations[input-1].init_guess = createTransformationMatrix(rotation_matrix, translation_vector);
         transformations[input-1].is_parent = false;
+        transformations[input-1].ok = true;
     }
     fid.close();
     return 0;
@@ -208,7 +230,32 @@ Eigen::Matrix4f pcl_tools::getTransformation(int input, int target){
 }
 
 
-
+int pcl_tools::getOverallTransformations(){
+    Eigen::Matrix4f transformation_matrices[83];
+    string tline;
+    fstream fid;
+    int input, target;
+    fid.open("/home/mustafasezer/overall.txt", ios::in);
+    getline(fid, tline);
+    while(!fid.eof()){
+        while(tline.find("scan_")==string::npos && !fid.eof()){
+            getline(fid, tline);
+        }
+        if(fid.eof()){
+            std::cout << "Reached the end of initial guess file" << std::endl;
+            fid.close();
+            return 1;
+        }
+        sscanf(tline.c_str(), "scan_%d to scan_%d", &input, &target);
+        Eigen::Matrix4f transformation;
+        for(int i=0; i<4; i++){
+            getline(fid, tline);
+            sscanf(tline.c_str(), "%f %f %f %f", &transformation_matrices[input-1](i,0), &transformation_matrices[input-1](i,1), &transformation_matrices[input-1](i,2), &transformation_matrices[input-1](i,3));
+        }
+    }
+    fid.close();
+    return 0;
+}
 
 
 //int pcl_tools::transform_pcd(int argc, char** argv)

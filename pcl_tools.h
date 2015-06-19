@@ -16,6 +16,7 @@ class pcl_tools
 {
 public:
     pcl_tools();
+    int MAX_NUM_SCANS;
     struct transformation_relation{
         //int id;
         bool is_parent;
@@ -23,6 +24,7 @@ public:
         Eigen::Matrix4f init_guess;
         Eigen::Matrix4f T;
         bool completed;
+        bool ok;
         //struct transformation_relation* parent;
     };
     Eigen::Matrix4f apply_icp(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out, bool viewResult=true);
@@ -44,6 +46,8 @@ public:
     Eigen::Matrix4f getInitialGuess(int input, int target);
     Eigen::Matrix4f getTransformation(int input, int target);
     int getInitialGuesses();
+    int getOverallTransformations();
+    int topMostParent(int id);
 
     void rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud);
 
