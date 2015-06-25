@@ -47,7 +47,7 @@ void end_timer_(string message = "Elapsed time:"){
 }
 
 
-void print_pcd_xyz(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud){
+void print_pcd_xyz(pcl::PointCloud<PointT>::Ptr cloud){
     for (size_t i = 0; i < cloud->points.size (); ++i)
         std::cout << "    " << cloud->points[i].x
                   << " "    << cloud->points[i].y
@@ -75,30 +75,29 @@ void create_launch_file(int min_index, int max_index){
 int main()
 {
     pcl_tools pcl_tool;
+
     pcl_tool.getInitialGuesses();
 
-    /*for(int i=0; i<43; i++){
-        std::cout << i+1 << " to " << pcl_tool.transformations[i].parent_id << std::endl;
-        std::cout << pcl_tool.transformations[i].T << std::endl << std::endl;
-        //std::cout << "Parent: " << pcl_tool.transformations[i].is_parent << std::endl << std::endl;
-    }
-    return 0;*/
-
-    fstream icp_result;
+    fstream icp_result, ndt_result;
     icp_result.open("/home/mustafasezer/icp_results.txt", ios::out);
+    ndt_result.open("/home/mustafasezer/ndt_results.txt", ios::out);
 
-    fstream overall;
-    overall.open("/home/mustafasezer/overall.txt", ios::out);
+    fstream overall_icp, overall_ndt;
+    overall_icp.open("/home/mustafasezer/overall_icp.txt", ios::out);
+    overall_icp << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
 
-    for(int i=1; i<=64; i++){
+    overall_ndt.open("/home/mustafasezer/overall_ndt.txt", ios::out);
+    overall_ndt << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
+
+    for(int i=1; i<=52; i++){
         if(pcl_tool.transformations[i-1].is_parent){
             continue;
         }
         stringstream target_filename, input_filename;
         target_filename.clear();
         input_filename.clear();
-        input_filename << "/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_" << i << ".pcd";
-        target_filename << "/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_" << pcl_tool.transformations[i-1].parent_id << ".pcd";
+        input_filename << "/home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_" << i << "_0.1.pcd";
+        target_filename << "/home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_" << pcl_tool.transformations[i-1].parent_id << "_0.1.pcd";
         string strtarget_filename = target_filename.str();
         string strinput_filename = input_filename.str();
         if (!file_exists (strtarget_filename.c_str()))
@@ -115,9 +114,16 @@ int main()
         //Read input cloud
         std::cout << "Reading input cloud " << input_filename.str() << std::endl;
         start_timer_();
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in = pcl_tool.loadPCD(input_filename.str());
+        pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_rgb(new pcl::PointCloud<pcl::PointXYZRGB>);
+        if (pcl::io::loadPCDFile<pcl::PointXYZRGB> (input_filename.str(), *cloud_in_rgb) == -1) //* load the file
+        {
+            PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
+            return (-1);
+        }
+        pcl::PointCloud<PointT>::Ptr cloud_in(new pcl::PointCloud<PointT>);
+        pcl::copyPointCloud(*cloud_in_rgb, *cloud_in);
+        //pcl::PointCloud<PointT>::Ptr cloud_in = pcl_tool.loadPCD(input_filename.str());
         end_timer_("Input cloud loaded in:");
-
         if(cloud_in->points.size() == 0){
             std::cout << input_filename.str() << " empty" << std::endl;
             continue;
@@ -126,7 +132,15 @@ int main()
         //Read target cloud
         std::cout << "Reading target cloud " << target_filename.str() << std::endl;
         start_timer_();
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ = pcl_tool.loadPCD(target_filename.str());
+        pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_targ_rgb(new pcl::PointCloud<pcl::PointXYZRGB>);
+        if (pcl::io::loadPCDFile<pcl::PointXYZRGB> (target_filename.str(), *cloud_targ_rgb) == -1) //* load the file
+        {
+            PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
+            return (-1);
+        }
+        pcl::PointCloud<PointT>::Ptr cloud_targ(new pcl::PointCloud<PointT>);
+        pcl::copyPointCloud(*cloud_targ_rgb, *cloud_targ);
+        //pcl::PointCloud<PointT>::Ptr cloud_targ = pcl_tool.loadPCD(target_filename.str());
         end_timer_("Target cloud loaded in:");
 
         if(cloud_targ->points.size() == 0){
@@ -136,29 +150,46 @@ int main()
             continue;
         }
 
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_transformed = pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].init_guess);
+        bool filter_xy_range =false;
+        if(filter_xy_range){
+            cloud_in = pcl_tool.getSlice(cloud_in, -50, 50, "x");
+            cloud_in = pcl_tool.getSlice(cloud_in, -50, 50, "y");
+            cloud_targ = pcl_tool.getSlice(cloud_targ, -50, 50, "x");
+            cloud_targ = pcl_tool.getSlice(cloud_targ, -50, 50, "y");
+        }
 
-        //Eigen::Matrix4f init_guess;
-        //init_guess.setIdentity();
+        pcl::PointCloud<PointT>::Ptr cloud_in_transformed = pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].init_guess);
+
+        Eigen::Matrix4f init_guess;
+        init_guess.setIdentity();
 
         //Whole data
         //Eigen::Matrix4f transform_matrix_ndt = pcl_tool.apply_ndt(cloud_in_transformed, cloud_targ, init_guess);
         //Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed, cloud_targ, true);
 
-
         //Only specific z range
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed, 2.5, 15);
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ_filtered = pcl_tool.getSlice(cloud_targ, 2.5, 15);
+        pcl::PointCloud<PointT>::Ptr cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed, 2.5, 20);
+        pcl::PointCloud<PointT>::Ptr cloud_targ_filtered = pcl_tool.getSlice(cloud_targ, 2.5, 20);
 
-        //Eigen::Matrix4f transform_matrix_ndt = pcl_tool.apply_ndt(cloud_in_transformed_filtered, cloud_targ_filtered, init_guess);
-        Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed_filtered, cloud_targ_filtered, false);
+        std::cout << "Applying NDT" << std::endl;
+        start_timer_();
+        Eigen::Matrix4f transform_matrix_ndt = pcl_tool.apply_ndt(cloud_in_transformed_filtered, cloud_targ_filtered, init_guess);
+        end_timer_("NDT completed in:");
+
+        std::cout << "Aligning scan_" << i << " to scan_" << pcl_tool.transformations[i-1].parent_id << std::endl;
+        start_timer_();
+        //Eigen::Matrix4f transform_matrix_icp = pcl_tool.apply_icp(cloud_in_transformed_filtered, cloud_targ_filtered, false);
+        Eigen::Matrix4f transform_matrix_icp = pcl_tool.pairAlign(cloud_in_transformed_filtered, cloud_targ_filtered, false);
+        end_timer_("Pair aligned in:");
 
         icp_result << "scan_" << i << " to scan_" << pcl_tool.transformations[i-1].parent_id << std::endl;
         icp_result << transform_matrix_icp << std::endl << std::endl;
 
-        stringstream output_filename;
-        output_filename << "/home/mustafasezer/dataset/ICP_Results/scan_" << i << ".pcd";
+        ndt_result << "scan_" << i << " to scan_" << pcl_tool.transformations[i-1].parent_id << std::endl;
+        ndt_result << transform_matrix_ndt << std::endl << std::endl;
 
+        stringstream output_filename;
+        output_filename << "/home/mustafasezer/dataset/ICP_Results_rgb/scan_" << i << "_0.1.pcd";
 
         /*pcl_tools::transformation_relation current_transform;
         current_transform = pcl_tool.transformations[i-1];
@@ -178,15 +209,34 @@ int main()
             continue;
         }
         pcl_tool.transformations[i-1].T = pcl_tool.transformations[pcl_tool.transformations[i-1].parent_id-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;
+        pcl_tool.transformations[i-1].T_ndt = pcl_tool.transformations[pcl_tool.transformations[i-1].parent_id-1].T_ndt * transform_matrix_ndt * pcl_tool.transformations[i-1].init_guess;
         pcl_tool.transformations[i-1].completed = true;
 
-        //pcl_tool.transformations[i-1].T = pcl_tool.transformations[i-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;
-        pcl_tool.savePCD((pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].T)), output_filename.str());
+        //pcl_tool.transformations[i-1].T = pcl_tool.transformations[i-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;      
+
+        //RGB Version
+        //pcl_tool.savePCD((pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].T)), output_filename.str());
+        pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_rgb_transformed(new pcl::PointCloud<pcl::PointXYZRGB>);
+        pcl::transformPointCloud(*cloud_in_rgb, *cloud_in_rgb_transformed, pcl_tool.transformations[i-1].T);
+        pcl::io::savePCDFileASCII (output_filename.str(), *cloud_in_rgb_transformed);
+
+
+        if(filter_xy_range){
+            cloud_in_rgb = pcl_tool.getSliceRGB(cloud_in_rgb, -50, 50, "x");
+            cloud_in_rgb = pcl_tool.getSliceRGB(cloud_in_rgb, -50, 50, "y");
+            stringstream filtered_rgb_filename;
+            filtered_rgb_filename << "/home/mustafasezer/dataset/downsampled_scaled_rgbclouds_filtered/cloud_" << i << "_0.1.pcd";
+            pcl::io::savePCDFileASCII (filtered_rgb_filename.str(), *cloud_in_rgb);
+        }
+
 
         int top_parent = pcl_tool.topMostParent(i);
         if(top_parent>=1 && top_parent<=pcl_tool.MAX_NUM_SCANS){
-            overall << "scan_" << i << " to scan_" << top_parent << std::endl;
-            overall << pcl_tool.transformations[i-1].T << std::endl << std::endl;
+            overall_icp << "scan_" << i << " to scan_" << top_parent << std::endl;
+            overall_icp << pcl_tool.transformations[i-1].T << std::endl << std::endl;
+
+            overall_ndt << "scan_" << i << " to scan_" << top_parent << std::endl;
+            overall_ndt << pcl_tool.transformations[i-1].T_ndt << std::endl << std::endl;
         }
 
         cloud_in.reset();
@@ -194,7 +244,9 @@ int main()
         cloud_in_transformed.reset();
     }
     icp_result.close();
-    overall.close();
+    ndt_result.close();
+    overall_icp.close();
+    overall_ndt.close();
 
 
 
@@ -209,14 +261,14 @@ int main()
     //Read input cloud
     std::cout << "Reading input cloud" << std::endl;
     start_timer_();
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in = pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_5.pcd");
-    //pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in = pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled/scan_1.pcd");
+    pcl::PointCloud<PointT>::Ptr cloud_in = pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_5.pcd");
+    //pcl::PointCloud<PointT>::Ptr cloud_in = pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled/scan_1.pcd");
     end_timer_("Input cloud loaded in:");
 
     //Read output cloud
     std::cout << "Reading output cloud" << std::endl;
     start_timer_();
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ = pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_1.pcd");
+    pcl::PointCloud<PointT>::Ptr cloud_targ = pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_1.pcd");
     end_timer_("Output cloud loaded in:");
 
 
@@ -224,7 +276,7 @@ int main()
     Eigen::Matrix3f rotation_in = pcl_tool.quaternion_to_rotation(0.000, 0.000, 0.005, 1.000);
     Eigen::Matrix4f cloud_in_transformation = pcl_tool.createTransformationMatrix(rotation_in, translation_in);
 
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_transformed = pcl_tool.transform_pcd(cloud_in, cloud_in_transformation);
+    pcl::PointCloud<PointT>::Ptr cloud_in_transformed = pcl_tool.transform_pcd(cloud_in, cloud_in_transformation);
 
     //Eigen::Matrix4f init_guess;
     //init_guess.setIdentity();
@@ -234,8 +286,8 @@ int main()
     //pcl_tool.apply_icp(cloud_in_transformed, cloud_targ);
 
     //Only specific z range
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed, 2.5, 15);
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ_transformed_filtered = pcl_tool.getSlice(cloud_targ, 2.5, 15);
+    pcl::PointCloud<PointT>::Ptr cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed, 2.5, 15);
+    pcl::PointCloud<PointT>::Ptr cloud_targ_transformed_filtered = pcl_tool.getSlice(cloud_targ, 2.5, 15);
 
     //pcl_tool.apply_ndt(cloud_in_transformed_filtered, cloud_targ_transformed_filtered, init_guess);
     pcl_tool.apply_icp(cloud_in_transformed_filtered, cloud_targ_transformed_filtered);
@@ -245,7 +297,7 @@ int main()
 
 
 
-/*pcl::PointXYZ minPt, maxPt;
+/*pcl::PointT minPt, maxPt;
 pcl::getMinMax3D (*cloud_in_transformed_filtered, minPt, maxPt);
 cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed_filtered, minPt.x/1.2, maxPt.x/1.2, "x");
 cloud_in_transformed_filtered = pcl_tool.getSlice(cloud_in_transformed_filtered, minPt.y/1.2, maxPt.y/1.2, "y");
@@ -259,8 +311,8 @@ cloud_targ_transformed_filtered = pcl_tool.getSlice(cloud_targ_transformed_filte
 
 
 /*
-pcl::PointCloud<pcl::PointXYZ>::Ptr cloudOut;
-pcl::CropBox<pcl::PointXYZ> cropFilter;
+pcl::PointCloud<PointT>::Ptr cloudOut;
+pcl::CropBox<PointT> cropFilter;
 cropFilter.setInputCloud (cloud_in_transformed);
 Eigen::Vector4f min_pt (-100.0f, -100.0f, 0.0f, 1.0f);
 Eigen::Vector4f max_pt (100.0f, 100.0f, 500.0f, 1.0f);
@@ -281,19 +333,19 @@ pcl_tool.getPCDStatistics("/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled
 
 
 /*pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
-pcl::PointCloud<pcl::PointXYZ>::Ptr cloud1= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled/scan_1.pcd");
-pcl::PointCloud<pcl::PointXYZ>::Ptr cloud2= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled/scan_2.pcd");
-pcl::PointCloud<pcl::PointXYZ>::Ptr cube1= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_1.pcd");
-pcl::PointCloud<pcl::PointXYZ>::Ptr cube2= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_2.pcd");
+pcl::PointCloud<PointT>::Ptr cloud1= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled/scan_1.pcd");
+pcl::PointCloud<PointT>::Ptr cloud2= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled/scan_2.pcd");
+pcl::PointCloud<PointT>::Ptr cube1= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_1.pcd");
+pcl::PointCloud<PointT>::Ptr cube2= pcl_tool.loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_2.pcd");
 
 // Define R,G,B colors for the point cloud
-pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud1_color_handler(cloud1, 255, 255, 255);
+pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud1_color_handler(cloud1, 255, 255, 255);
 //viewer.addPointCloud (cloud1, cloud1_color_handler, "cloud1");
-pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud2_color_handler(cloud2, 0, 255, 0);
+pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud2_color_handler(cloud2, 0, 255, 0);
 //viewer.addPointCloud (cloud2, cloud2_color_handler, "cloud2");
-pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cube1_color_handler(cube1, 255, 0, 0);
+pcl::visualization::PointCloudColorHandlerCustom<PointT> cube1_color_handler(cube1, 255, 0, 0);
 viewer.addPointCloud (cube1, cube1_color_handler, "cube1");
-pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cube2_color_handler(cube2, 0, 0, 255);
+pcl::visualization::PointCloudColorHandlerCustom<PointT> cube2_color_handler(cube2, 0, 0, 255);
 viewer.addPointCloud (cube2, cube2_color_handler, "cube2");
 
 
@@ -326,7 +378,7 @@ return 0;*/
             continue;
         }
 
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud = pcl_tool.loadPCD(filename.str());
+        pcl::PointCloud<PointT>::Ptr cloud = pcl_tool.loadPCD(filename.str());
 
         std::cerr << "PointCloud read: " << cloud->width * cloud->height
                   << " data points (" << pcl::getFieldsList (*cloud) << ")."<< endl;
@@ -338,7 +390,7 @@ return 0;*/
 
 
         for(float j=1.5; j<3.5; ){
-            pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in_f = pcl_tool.getSlice(cloud, 3.5+j, 4.5+j);
+            pcl::PointCloud<PointT>::Ptr cloud_in_f = pcl_tool.getSlice(cloud, 3.5+j, 4.5+j);
             stringstream filename2;
             filename2 << "/home/mustafasezer/dataset/Downsampled_Projected_" << 3.5+j << "_" << 4.5+j << "/scan_" << i << ".pcd";
             cout << filename2.str() << endl;
@@ -362,9 +414,9 @@ return 0;*/
             continue;
         stringstream in_file;
         in_file << "/home/mustafasezer/dataset/Downsampled_Cuboids_Scaled/scan_" << scan_no << ".pcd";
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud = pcl_tool.loadPCD(in_file.str());
+        pcl::PointCloud<PointT>::Ptr cloud = pcl_tool.loadPCD(in_file.str());
         float upper_limit = 5.5;
-        pcl::PointCloud<pcl::PointXYZ>::Ptr output = pcl_tool.getSlice(cloud, 5.0, upper_limit);
+        pcl::PointCloud<PointT>::Ptr output = pcl_tool.getSlice(cloud, 5.0, upper_limit);
         if(output->points.size()<=0){
             upper_limit += 0.5;
             output = pcl_tool.getSlice(cloud, 5.0, upper_limit);
@@ -390,3 +442,11 @@ if (pcl::io::loadPCDFile<pcl::PointXYZRGB> ("/home/mustafasezer/dataset/Downsamp
     return (-1);
 }
 pcl_tool.rgbVis(cloud_inp);*/
+
+
+/*for(int i=0; i<43; i++){
+    std::cout << i+1 << " to " << pcl_tool.transformations[i].parent_id << std::endl;
+    std::cout << pcl_tool.transformations[i].T << std::endl << std::endl;
+    //std::cout << "Parent: " << pcl_tool.transformations[i].is_parent << std::endl << std::endl;
+}
+return 0;*/

@@ -18,7 +18,27 @@
 #include <pcl/ModelCoefficients.h>
 #include <pcl/filters/project_inliers.h>
 
+
+//Pairwise
+#include <boost/make_shared.hpp>
+//#include <pcl/point_types.h>
+//#include <pcl/point_cloud.h>
+#include <pcl/point_representation.h>
+//#include <pcl/io/pcd_io.h>
+//#include <pcl/filters/voxel_grid.h>
+#include <pcl/filters/filter.h>
+#include <pcl/features/normal_3d.h>
+//#include <pcl/registration/icp.h>
+#include <pcl/registration/icp_nl.h>
+#include <pcl/registration/transforms.h>
+
+
+
 using namespace std;
+
+float MAX_CORRESPONDENCE_INIT = 1.7;
+float MAX_CORRESPONDENCE_STEP = 0.3;
+
 struct timespec t1_, t2_;
 double elapsed_time_;
 volatile long long i_;
@@ -48,6 +68,28 @@ std::string int2str(int num){
 }
 
 
+// Define a new point representation for < x, y, z, curvature >
+class MyPointRepresentation : public pcl::PointRepresentation <PointNormalT>
+{
+    using pcl::PointRepresentation<PointNormalT>::nr_dimensions_;
+public:
+    MyPointRepresentation ()
+    {
+        // Define the number of dimensions
+        nr_dimensions_ = 4;
+    }
+
+    // Override the copyToFloatArray method to define our feature vector
+    virtual void copyToFloatArray (const PointNormalT &p, float * out) const
+    {
+        // < x, y, z, curvature >
+        out[0] = p.x;
+        out[1] = p.y;
+        out[2] = p.z;
+        out[3] = p.curvature;
+    }
+};
+
 pcl_tools::pcl_tools()
 {
     MAX_NUM_SCANS = 83;
@@ -59,6 +101,7 @@ pcl_tools::pcl_tools()
         transformations[i].completed = false;
         transformations[i].is_parent = false;
         transformations[i].T.setIdentity();
+        transformations[i].T_ndt.setIdentity();
         transformations[i].ok = false;
     }
 }
@@ -278,7 +321,7 @@ int pcl_tools::getOverallTransformations(){
 //    }
 
 //    // Load file | Works with PCD and PLY files
-//    pcl::PointCloud<pcl::PointXYZ>::Ptr source_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
+//    pcl::PointCloud<PointT>::Ptr source_cloud (new pcl::PointCloud<PointT> ());
 
 //    if (file_is_pcd) {
 //        if (pcl::io::loadPCDFile (argv[filenames[0]], *source_cloud) < 0)  {
@@ -359,7 +402,7 @@ int pcl_tools::getOverallTransformations(){
 //    std::cout << transform_2.matrix() << std::endl;
 
 //    // Executing the transformation
-//    pcl::PointCloud<pcl::PointXYZ>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
+//    pcl::PointCloud<PointT>::Ptr transformed_cloud (new pcl::PointCloud<PointT> ());
 //    // You can either apply transform_1 or transform_2; they are the same
 //    pcl::transformPointCloud (*source_cloud, *transformed_cloud, transform_1);
 
@@ -367,9 +410,9 @@ int pcl_tools::getOverallTransformations(){
 
 
 //    //Read scan_1.pcd
-//    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in (new pcl::PointCloud<pcl::PointXYZ>);
+//    pcl::PointCloud<PointT>::Ptr cloud_in (new pcl::PointCloud<PointT>);
 
-//    if (pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/mustafasezer/dataset/Downsampled/scan_1.pcd", *cloud_in) == -1) //* load the file
+//    if (pcl::io::loadPCDFile<PointT> ("/home/mustafasezer/dataset/Downsampled/scan_1.pcd", *cloud_in) == -1) //* load the file
 //    {
 //        PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
 //        return (-1);
@@ -386,16 +429,16 @@ int pcl_tools::getOverallTransformations(){
 //    pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
 
 //    // Define R,G,B colors for the point cloud
-//    //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> source_cloud_color_handler (source_cloud, 255, 255, 255);
+//    //pcl::visualization::PointCloudColorHandlerCustom<PointT> source_cloud_color_handler (source_cloud, 255, 255, 255);
 //    // We add the point cloud to the viewer and pass the color handler
 //    //viewer.addPointCloud (source_cloud, source_cloud_color_handler, "original_cloud");
 
 //    // Define R,G,B colors for the point cloud
-//    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_in_color_handler (cloud_in, 255, 255, 255);
+//    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_in_color_handler (cloud_in, 255, 255, 255);
 //    // We add the point cloud to the viewer and pass the color handler
 //    viewer.addPointCloud (cloud_in, cloud_in_color_handler, "original_cloud");
 
-//    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> transformed_cloud_color_handler (transformed_cloud, 230, 20, 20); // Red
+//    pcl::visualization::PointCloudColorHandlerCustom<PointT> transformed_cloud_color_handler (transformed_cloud, 230, 20, 20); // Red
 //    viewer.addPointCloud (transformed_cloud, transformed_cloud_color_handler, "transformed_cloud");
 
 //    //viewer.addCoordinateSystem (1.0, "cloud", 0);
@@ -416,7 +459,7 @@ int pcl_tools::getOverallTransformations(){
 
 
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<pcl::PointXYZ>::Ptr source_cloud, Eigen::Matrix4f transform_matrix)
+pcl::PointCloud<PointT>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<PointT>::Ptr source_cloud, Eigen::Matrix4f transform_matrix)
 {
     //    // Fetch point cloud filename in arguments | Works with PCD and PLY files
     //    std::vector<int> filenames;
@@ -436,7 +479,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<pcl
     //    }
 
     //    // Load file | Works with PCD and PLY files
-    //    pcl::PointCloud<pcl::PointXYZ>::Ptr source_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
+    //    pcl::PointCloud<PointT>::Ptr source_cloud (new pcl::PointCloud<PointT> ());
 
     //    if (file_is_pcd) {
     //        if (pcl::io::loadPCDFile (argv[filenames[0]], *source_cloud) < 0)  {
@@ -453,7 +496,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<pcl
     //    }
 
     // Executing the transformation
-    pcl::PointCloud<pcl::PointXYZ>::Ptr transformed_cloud (new pcl::PointCloud<pcl::PointXYZ> ());
+    pcl::PointCloud<PointT>::Ptr transformed_cloud (new pcl::PointCloud<PointT> ());
     // You can either apply transform_1 or transform_2; they are the same
     pcl::transformPointCloud (*source_cloud, *transformed_cloud, transform_matrix);
 
@@ -463,8 +506,8 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<pcl
 
 
     //    //Read scan_1.pcd
-    //    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_1 = loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_3.pcd");
-    //    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_2 = loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_4.pcd");
+    //    pcl::PointCloud<PointT>::Ptr cloud_1 = loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_3.pcd");
+    //    pcl::PointCloud<PointT>::Ptr cloud_2 = loadPCD("/home/mustafasezer/dataset/Downsampled_Cuboids/scan_4.pcd");
 
     //    // Visualization
     //    printf(  "\nPoint cloud colors :  white  = original point cloud\n"
@@ -472,18 +515,18 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::transform_pcd(pcl::PointCloud<pcl
     //    pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
 
     //    // Define R,G,B colors for the point cloud
-    //    //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> source_cloud_color_handler (source_cloud, 255, 255, 255);
+    //    //pcl::visualization::PointCloudColorHandlerCustom<PointT> source_cloud_color_handler (source_cloud, 255, 255, 255);
     //    // We add the point cloud to the viewer and pass the color handler
     //    //viewer.addPointCloud (source_cloud, source_cloud_color_handler, "original_cloud");
 
     //    // Define R,G,B colors for the point cloud
-    //    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_1_color_handler (cloud_1, 255, 255, 255);
+    //    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_1_color_handler (cloud_1, 255, 255, 255);
     //    // We add the point cloud to the viewer and pass the color handler
     //    viewer.addPointCloud (cloud_1, cloud_1_color_handler, "cloud_1");
-    //    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_2_color_handler (cloud_2, 0, 255, 0);
+    //    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_2_color_handler (cloud_2, 0, 255, 0);
     //    viewer.addPointCloud (cloud_2, cloud_2_color_handler, "cloud_2");
 
-    //    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> transformed_cloud_color_handler (transformed_cloud, 230, 20, 20); // Red
+    //    pcl::visualization::PointCloudColorHandlerCustom<PointT> transformed_cloud_color_handler (transformed_cloud, 230, 20, 20); // Red
     //    viewer.addPointCloud (transformed_cloud, transformed_cloud_color_handler, "transformed_cloud");
 
     //    //viewer.addCoordinateSystem (1.0, "cloud", 0);
@@ -520,18 +563,18 @@ void pcl_tools::rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud)
 }
 
 
-void pcl_tools::viewPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, string name, int r, int g, int b){
+void pcl_tools::viewPCD(pcl::PointCloud<PointT>::Ptr cloud, string name, int r, int g, int b){
     //*viewer= pcl::visualization::PCLVisualizer("Matrix transformation example");
 
     pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
 
     // Define R,G,B colors for the point cloud
-    //pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> source_cloud_color_handler (source_cloud, 255, 255, 255);
+    //pcl::visualization::PointCloudColorHandlerCustom<PointT> source_cloud_color_handler (source_cloud, 255, 255, 255);
     // We add the point cloud to the viewer and pass the color handler
     //viewer.addPointCloud (source_cloud, source_cloud_color_handler, "original_cloud");
 
     // Define R,G,B colors for the point cloud
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_color_handler(cloud, r, g, b);
+    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_color_handler(cloud, r, g, b);
     // We add the point cloud to the viewer and pass the color handler
     viewer.addPointCloud (cloud, cloud_color_handler, name);
 
@@ -546,18 +589,18 @@ void pcl_tools::viewPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, string name, 
     }
 }
 
-void pcl_tools::viewICPResult(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_targ, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_aligned){
+void pcl_tools::viewICPResult(pcl::PointCloud<PointT>::Ptr cloud_in, pcl::PointCloud<PointT>::Ptr cloud_targ, pcl::PointCloud<PointT>::Ptr cloud_aligned){
     //*viewer= pcl::visualization::PCLVisualizer("Matrix transformation example");
 
     pcl::visualization::PCLVisualizer viewer ("Matrix transformation example");
 
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_in_color_handler(cloud_in, 255, 255, 255);
+    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_in_color_handler(cloud_in, 255, 255, 255);
     viewer.addPointCloud (cloud_in, cloud_in_color_handler, "cloud_in");
 
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_targ_color_handler(cloud_targ, 0, 0, 255);
+    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_targ_color_handler(cloud_targ, 0, 0, 255);
     viewer.addPointCloud (cloud_targ, cloud_targ_color_handler, "cloud_targ");
 
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ> cloud_aligned_color_handler(cloud_aligned, 255, 0, 0);
+    pcl::visualization::PointCloudColorHandlerCustom<PointT> cloud_aligned_color_handler(cloud_aligned, 255, 0, 0);
     viewer.addPointCloud (cloud_aligned, cloud_aligned_color_handler, "cloud_aligned");
 
     //viewer.addCoordinateSystem (1.0, name, 0);
@@ -574,9 +617,9 @@ void pcl_tools::viewICPResult(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl:
 }
 
 
-Eigen::Matrix4f pcl_tools::apply_icp(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out, bool viewResult){
+Eigen::Matrix4f pcl_tools::apply_icp(pcl::PointCloud<PointT>::Ptr cloud_in, pcl::PointCloud<PointT>::Ptr cloud_out, bool viewResult){
     start_timer();
-    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    pcl::IterativeClosestPoint<PointT, PointT> icp;
     icp.setInputCloud(cloud_in);
     icp.setInputTarget(cloud_out);
 
@@ -588,7 +631,7 @@ Eigen::Matrix4f pcl_tools::apply_icp(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_i
     // Set the euclidean distance difference epsilon (criterion 3)
     icp.setEuclideanFitnessEpsilon(0.01);
 
-    pcl::PointCloud<pcl::PointXYZ> Final;
+    pcl::PointCloud<PointT> Final;
     icp.align(Final);
     std::cout << "ICP has converged:" << icp.hasConverged() << " score: " <<
                  icp.getFitnessScore() << std::endl;
@@ -605,13 +648,143 @@ Eigen::Matrix4f pcl_tools::apply_icp(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_i
     return transformation;
 }
 
+Eigen::Matrix4f pcl_tools::pairAlign (const PointCloud::Ptr cloud_src, const PointCloud::Ptr cloud_tgt, bool downsample)
+{
+    //
+    // Downsample for consistency and speed
+    // \note enable this for large datasets
+    PointCloud::Ptr src (new PointCloud);
+    PointCloud::Ptr tgt (new PointCloud);
+    pcl::VoxelGrid<PointT> grid;
+    if (downsample)
+    {
+        grid.setLeafSize (0.2, 0.2, 0.2);
+        grid.setInputCloud (cloud_src);
+        grid.filter (*src);
+
+        grid.setInputCloud (cloud_tgt);
+        grid.filter (*tgt);
+    }
+    else
+    {
+        src = cloud_src;
+        tgt = cloud_tgt;
+    }
+
+
+    // Compute surface normals and curvature
+    PointCloudWithNormals::Ptr points_with_normals_src (new PointCloudWithNormals);
+    PointCloudWithNormals::Ptr points_with_normals_tgt (new PointCloudWithNormals);
+
+    pcl::NormalEstimation<PointT, PointNormalT> norm_est;
+    pcl::search::KdTree<pcl::PointXYZ>::Ptr tree (new pcl::search::KdTree<pcl::PointXYZ> ());
+    norm_est.setSearchMethod (tree);
+    norm_est.setKSearch (30);
+
+    norm_est.setInputCloud (src);
+    norm_est.compute (*points_with_normals_src);
+    pcl::copyPointCloud (*src, *points_with_normals_src);
+
+    norm_est.setInputCloud (tgt);
+    norm_est.compute (*points_with_normals_tgt);
+    pcl::copyPointCloud (*tgt, *points_with_normals_tgt);
+
+    //
+    // Instantiate our custom point representation (defined above) ...
+    MyPointRepresentation point_representation;
+    // ... and weight the 'curvature' dimension so that it is balanced against x, y, and z
+    float alpha[4] = {1.0, 1.0, 1.0, 1.0};
+    point_representation.setRescaleValues (alpha);
+
+    //
+    // Align
+    pcl::IterativeClosestPointNonLinear<PointNormalT, PointNormalT> reg;
+    reg.setTransformationEpsilon (1e-6);
+    // Set the maximum distance between two correspondences (src<->tgt) to 10cm
+    // Note: adjust this based on the size of your datasets
+    reg.setMaxCorrespondenceDistance (MAX_CORRESPONDENCE_INIT);
+    reg.setEuclideanFitnessEpsilon(0.01);
+    // Set the point representation
+    reg.setPointRepresentation (boost::make_shared<const MyPointRepresentation> (point_representation));
+
+    reg.setInputSource (points_with_normals_src);
+    reg.setInputTarget (points_with_normals_tgt);
+
+
+
+    //
+    // Run the same optimization in a loop and visualize the results
+    Eigen::Matrix4f Ti = Eigen::Matrix4f::Identity (), prev, targetToSource;
+    PointCloudWithNormals::Ptr reg_result = points_with_normals_src;
+    reg.setMaximumIterations (100);
+    for (int i = 0; i < 5; ++i)
+    {
+        PCL_INFO ("Iteration Nr. %d.\n", i);
+
+        // save cloud for visualization purpose
+        points_with_normals_src = reg_result;
+
+        // Estimate
+        reg.setInputSource (points_with_normals_src);
+        reg.align (*reg_result);
+
+        //accumulate transformation between each Iteration
+        Ti = reg.getFinalTransformation () * Ti;
+
+        //if the difference between this transformation and the previous one
+        //is smaller than the threshold, refine the process by reducing
+        //the maximal correspondence distance
+        if (fabs ((reg.getLastIncrementalTransformation () - prev).sum ()) < reg.getTransformationEpsilon ()){
+            /*if(reg.getMaxCorrespondenceDistance () - MAX_CORRESPONDENCE_STEP <= 0){
+                i += 100;
+            }*/
+            reg.setMaxCorrespondenceDistance (reg.getMaxCorrespondenceDistance () - MAX_CORRESPONDENCE_STEP);
+        }
+
+        prev = reg.getLastIncrementalTransformation ();
+
+        // visualize current state
+        //showCloudsRight(points_with_normals_tgt, points_with_normals_src);
+    }
+    return Ti;
+
+    //std::cout << Ti << std::endl;
+
+    //
+    // Get the transformation from target to source
+    //targetToSource = Ti.inverse();
+
+    //
+    // Transform target back in source frame
+    //pcl::transformPointCloud (*cloud_tgt, *output, targetToSource);
+
+    /*p->removePointCloud ("source");
+  p->removePointCloud ("target");
+
+  PointCloudColorHandlerCustom<PointT> cloud_tgt_h (output, 0, 255, 0);
+  PointCloudColorHandlerCustom<PointT> cloud_src_h (cloud_src, 255, 0, 0);
+  p->addPointCloud (output, cloud_tgt_h, "target", vp_2);
+  p->addPointCloud (cloud_src, cloud_src_h, "source", vp_2);
+
+    PCL_INFO ("Press q to continue the registration.\n");
+  p->spin ();
+
+  p->removePointCloud ("source");
+  p->removePointCloud ("target");
+
+  //add the source to the transformed target
+  *output += *cloud_src;
+
+  final_transform = targetToSource;*/
+}
+
 int pcl_tools::apply_icp(string path_in, string path_out){
     //Read input cloud
     std::cout << "Reading input cloud" << std::endl;
     start_timer();
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in (new pcl::PointCloud<pcl::PointXYZ>);
+    pcl::PointCloud<PointT>::Ptr cloud_in (new pcl::PointCloud<PointT>);
 
-    if (pcl::io::loadPCDFile<pcl::PointXYZ> (path_in, *cloud_in) == -1) //* load the file
+    if (pcl::io::loadPCDFile<PointT> (path_in, *cloud_in) == -1) //* load the file
     {
         PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
         return (-1);
@@ -621,9 +794,9 @@ int pcl_tools::apply_icp(string path_in, string path_out){
     //Read output cloud
     std::cout << "Reading output cloud" << std::endl;
     start_timer();
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out (new pcl::PointCloud<pcl::PointXYZ>);
+    pcl::PointCloud<PointT>::Ptr cloud_out (new pcl::PointCloud<PointT>);
 
-    if (pcl::io::loadPCDFile<pcl::PointXYZ> (path_out, *cloud_out) == -1) //* load the file
+    if (pcl::io::loadPCDFile<PointT> (path_out, *cloud_out) == -1) //* load the file
     {
         PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
         return (-1);
@@ -632,10 +805,10 @@ int pcl_tools::apply_icp(string path_in, string path_out){
 
 
     start_timer();
-    pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+    pcl::IterativeClosestPoint<PointT, PointT> icp;
     icp.setInputCloud(cloud_in);
     icp.setInputTarget(cloud_out);
-    pcl::PointCloud<pcl::PointXYZ> Final;
+    pcl::PointCloud<PointT> Final;
     icp.align(Final);
     std::cout << "ICP has converged:" << icp.hasConverged() << " score: " <<
                  icp.getFitnessScore() << std::endl;
@@ -644,12 +817,12 @@ int pcl_tools::apply_icp(string path_in, string path_out){
     return 0;
 }
 
-Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in, pcl::PointCloud<pcl::PointXYZ>::Ptr target_cloud, Eigen::Matrix4f init_guess){
+Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<PointT>::Ptr cloud_in, pcl::PointCloud<PointT>::Ptr target_cloud, Eigen::Matrix4f init_guess){
 
 
     //start_timer();
     // Initializing Normal Distributions Transform (NDT).
-    pcl::NormalDistributionsTransform<pcl::PointXYZ, pcl::PointXYZ> ndt;
+    pcl::NormalDistributionsTransform<PointT, PointT> ndt;
 
     // Setting scale dependent NDT parameters
     // Setting minimum transformation difference for termination condition.
@@ -673,14 +846,17 @@ Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_i
     Eigen::Matrix4f init_guess = (init_translation * init_rotation).matrix ();*/
 
     // Calculating required rigid transform to align the input cloud to the target cloud.
-    pcl::PointCloud<pcl::PointXYZ>::Ptr output_cloud (new pcl::PointCloud<pcl::PointXYZ>);
+    pcl::PointCloud<PointT>::Ptr output_cloud (new pcl::PointCloud<PointT>);
     ndt.align(*output_cloud, init_guess);
 
     std::cout << "Normal Distributions Transform has converged:" << ndt.hasConverged ()
               << " score: " << ndt.getFitnessScore () << std::endl;
 
-    std::cout << ndt.getFinalTransformation () << std::endl;
-    //end_timer("NDT has converged in:");
+    return ndt.getFinalTransformation ();
+
+
+    //std::cout << ndt.getFinalTransformation () << std::endl;
+    /*//end_timer("NDT has converged in:");
 
     // Transforming unfiltered, input cloud using found transform.
     pcl::transformPointCloud (*cloud_in, *output_cloud, ndt.getFinalTransformation ());
@@ -690,19 +866,17 @@ Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_i
             viewer_final (new pcl::visualization::PCLVisualizer ("3D Viewer"));
     viewer_final->setBackgroundColor (0, 0, 0);
 
-    std::cout << "Starting NDT 4" << std::endl;
-
     // Coloring and visualizing target cloud (red).
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ>
+    pcl::visualization::PointCloudColorHandlerCustom<PointT>
             target_color (target_cloud, 255, 0, 0);
-    viewer_final->addPointCloud<pcl::PointXYZ> (target_cloud, target_color, "target cloud");
+    viewer_final->addPointCloud<PointT> (target_cloud, target_color, "target cloud");
     viewer_final->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE,
                                                     1, "target cloud");
 
     // Coloring and visualizing transformed input cloud (green).
-    pcl::visualization::PointCloudColorHandlerCustom<pcl::PointXYZ>
+    pcl::visualization::PointCloudColorHandlerCustom<PointT>
             output_color (output_cloud, 0, 255, 0);
-    viewer_final->addPointCloud<pcl::PointXYZ> (output_cloud, output_color, "output cloud");
+    viewer_final->addPointCloud<PointT> (output_cloud, output_color, "output cloud");
     viewer_final->setPointCloudRenderingProperties (pcl::visualization::PCL_VISUALIZER_POINT_SIZE,
                                                     1, "output cloud");
 
@@ -715,13 +889,13 @@ Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_i
     {
         viewer_final->spinOnce (100);
         boost::this_thread::sleep (boost::posix_time::microseconds (100000));
-    }
+    }*/
 }
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::loadPCD(string path){
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<PointT>::Ptr pcl_tools::loadPCD(string path){
+    pcl::PointCloud<PointT>::Ptr cloud (new pcl::PointCloud<PointT>);
 
-    if (pcl::io::loadPCDFile<pcl::PointXYZ> (path, *cloud) == -1) //* load the file
+    if (pcl::io::loadPCDFile<PointT> (path, *cloud) == -1) //* load the file
     {
         PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
         return (cloud);
@@ -733,9 +907,9 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::loadPCD(string path){
 
 
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::getSlice(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, float z1, float z2, string field_name){
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZ>);
-    pcl::PassThrough<pcl::PointXYZ> pass;
+pcl::PointCloud<PointT>::Ptr pcl_tools::getSlice(pcl::PointCloud<PointT>::Ptr cloud, float z1, float z2, string field_name){
+    pcl::PointCloud<PointT>::Ptr cloud_filtered (new pcl::PointCloud<PointT>);
+    pcl::PassThrough<PointT> pass;
     pass.setInputCloud (cloud);
     pass.setFilterFieldName (field_name);
     pass.setFilterLimits (z1, z2);
@@ -744,7 +918,18 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::getSlice(pcl::PointCloud<pcl::Poi
     return cloud_filtered;
 }
 
-void pcl_tools::savePCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, int scan_no){
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr pcl_tools::getSliceRGB(pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud, float z1, float z2, string field_name){
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_filtered (new pcl::PointCloud<pcl::PointXYZRGB>);
+    pcl::PassThrough<pcl::PointXYZRGB> pass;
+    pass.setInputCloud (cloud);
+    pass.setFilterFieldName (field_name);
+    pass.setFilterLimits (z1, z2);
+    //pass.setFilterLimitsNegative (true);
+    pass.filter (*cloud_filtered);
+    return cloud_filtered;
+}
+
+void pcl_tools::savePCD(pcl::PointCloud<PointT>::Ptr cloud, int scan_no){
     cloud->width = 1;
     cloud->height = cloud->points.size();
     stringstream filename;
@@ -754,7 +939,7 @@ void pcl_tools::savePCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, int scan_no){
     std::cerr << "Cuboid size" << cloud->points.size() << std::endl;
 }
 
-void pcl_tools::savePCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, string path){
+void pcl_tools::savePCD(pcl::PointCloud<PointT>::Ptr cloud, string path){
     cloud->width = 1;
     cloud->height = cloud->points.size();
     pcl::io::savePCDFileASCII (path, *cloud);
@@ -771,8 +956,8 @@ void pcl_tools::getPCDStatistics(string dir, int low_ind, int up_ind){
         filename.append(num.c_str());
         filename.append(".pcd");
         std::cout << "Loading " << filename << std::endl;
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud = loadPCD(filename);
-        pcl::PointXYZ minPt, maxPt;
+        pcl::PointCloud<PointT>::Ptr cloud = loadPCD(filename);
+        PointT minPt, maxPt;
         pcl::getMinMax3D (*cloud, minPt, maxPt);
         std::cout << "Min: " << minPt.x << " " << minPt.y << " " << minPt.z << std::endl;
         std::cout << "Max: " << maxPt.x << " " << maxPt.y << " " << maxPt.z << std::endl;
@@ -780,8 +965,8 @@ void pcl_tools::getPCDStatistics(string dir, int low_ind, int up_ind){
 }
 
 
-pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::projectPCD(pcl::PointCloud<pcl::PointXYZ>::Ptr cloud, float a, float b, float c, float d){
-    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_projected (new pcl::PointCloud<pcl::PointXYZ>);
+pcl::PointCloud<PointT>::Ptr pcl_tools::projectPCD(pcl::PointCloud<PointT>::Ptr cloud, float a, float b, float c, float d){
+    pcl::PointCloud<PointT>::Ptr cloud_projected (new pcl::PointCloud<PointT>);
 
     // Create a set of planar coefficients
     pcl::ModelCoefficients::Ptr coefficients (new pcl::ModelCoefficients ());
@@ -792,7 +977,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr pcl_tools::projectPCD(pcl::PointCloud<pcl::P
     coefficients->values[3] = d;
 
     // Create the filtering object
-    pcl::ProjectInliers<pcl::PointXYZ> proj;
+    pcl::ProjectInliers<PointT> proj;
     proj.setModelType (pcl::SACMODEL_PLANE);
     proj.setInputCloud (cloud);
     proj.setModelCoefficients (coefficients);
@@ -831,7 +1016,7 @@ int pcl_tools::scale_pcd(float scaling_factor){
         }
 
 
-        pcl::PointCloud<pcl::PointXYZ>::Ptr cloud = loadPCD(filename.str());
+        pcl::PointCloud<PointT>::Ptr cloud = loadPCD(filename.str());
 
         std::cerr << "PointCloud read: " << cloud->width * cloud->height
                   << " data points (" << pcl::getFieldsList (*cloud) << ")."<< endl;
