@@ -819,8 +819,6 @@ int pcl_tools::apply_icp(string path_in, string path_out){
 
 Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<PointT>::Ptr cloud_in, pcl::PointCloud<PointT>::Ptr target_cloud, Eigen::Matrix4f init_guess){
 
-    return init_guess;
-
     //start_timer();
     // Initializing Normal Distributions Transform (NDT).
     pcl::NormalDistributionsTransform<PointT, PointT> ndt;
