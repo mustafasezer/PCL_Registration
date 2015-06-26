@@ -1,22 +1,27 @@
+scan_1 to scan_1
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY [0.000, -0.000, 0.000]
+
 scan_2 to scan_1
-- Translation: [3.226, -19.744, 0.000]
-- Rotation: in Quaternion [-0.000, -0.000, 0.022, 1.000]
-            in RPY [-0.000, -0.000, 0.044]
+- Translation: [3.159, -19.887, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0250339, 0.9996866]
+            in RPY [-0.0000000, 0.0000000, 0.0500730]
 
 scan_3 to scan_2
-- Translation: [0.448, -26.612, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, -0.021, 1.000]
-            in RPY [0.000, 0.000, -0.042]
+- Translation: [0.368, -26.538, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0258812, 0.9996650]
+            in RPY [0.0000000, 0.0000000, -0.0517682]
 
 scan_4 to scan_3
-- Translation: [2.365, -26.596, 0.000]
-- Rotation: in Quaternion [-0.000, 0.000, 0.018, 1.000]
-            in RPY [-0.000, 0.000, 0.036]
+- Translation: [2.334, -26.116, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0177804, 0.9998419]
+            in RPY [-0.0000000, 0.0000000, 0.0355626]
 
 scan_5 to scan_1
-- Translation: [-1.429, 4.925, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, -0.003, 1.000]
-            in RPY [0.000, 0.000, -0.007]
+- Translation: [-1.432, 4.864, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0032481, 0.9999947]
+            in RPY [0.0000000, 0.0000000, -0.0064962]
 
 scan_6 to scan_5
 - Translation: [3.570, -35.464, 0.000]
@@ -44,19 +49,19 @@ scan_10 to scan_9
             in RPY [-0.000, -0.000, 0.030]
 
 scan_11 to scan_10
-- Translation: [3.105, -27.679, 0.000]
-- Rotation: in Quaternion [-0.000, 0.000, 0.001, 1.000]
-            in RPY [-0.000, 0.000, 0.002]
+- Translation: [2.999, -27.587, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0026953, 0.9999964]
+            in RPY [-0.0000000, 0.0000000, 0.0053905]
 
 scan_12 to scan_11
-- Translation: [6.118, -7.686, 0.000]
-- Rotation: in Quaternion [-0.000, 0.000, 0.715, 0.699]
-            in RPY [-0.000, 0.000, 1.594]
+- Translation: [6.364, -7.824, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.7135176, 0.7006374]
+            in RPY [-0.0000001, 0.0000001, 1.5890119]
 
 scan_13 to scan_12
-- Translation: [0.907, -17.493, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, 0.002, 1.000]
-            in RPY [0.000, 0.000, 0.004]
+- Translation: [1.025, -17.459, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0029890, 0.9999955]
+            in RPY [-0.0000000, 0.0000000, 0.0059781]
 
 scan_14 to scan_13
 - Translation: [0.988, -15.675, 0.000]
@@ -84,34 +89,34 @@ scan_18 to scan_17
             in RPY [0.000, 0.000, -0.074]
 
 scan_19 to scan_18
-- Translation: [-2.252, 10.162, 0.000]
-- Rotation: in Quaternion [-0.000, 0.000, 0.014, 1.000]
-            in RPY [-0.000, 0.000, 0.029]
+- Translation: [-2.225, 10.280, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0140811, 0.9999009]
+            in RPY [-0.0000000, -0.0000000, 0.0281631]
 
 scan_20 to scan_19
-- Translation: [-9.912, 0.438, 0.000]
-- Rotation: in Quaternion [-0.000, 0.000, 0.759, 0.651]
-            in RPY [-0.000, 0.000, 1.724]
+- Translation: [-9.875, 0.378, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.7600364, 0.6498805]
+            in RPY [-0.0000001, 0.0000001, 1.7267383]
 
 scan_21 to scan_20
-- Translation: [-0.110, 17.120, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, -0.082, 0.997]
-            in RPY [0.000, 0.000, -0.164]
+- Translation: [-0.038, 17.153, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0823492, 0.9966035]
+            in RPY [0.0000000, 0.0000000, -0.1648851]
 
 scan_22 to scan_21
-- Translation: [-4.276, 21.763, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, 0.055, 0.998]
-            in RPY [0.000, 0.000, 0.111]
+- Translation: [-4.250, 21.749, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0539103, 0.9985458]
+            in RPY [-0.0000000, -0.0000000, 0.1078729]
 
 scan_23 to scan_22
-- Translation: [-1.471, 16.061, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, 0.023, 1.000]
-            in RPY [0.000, 0.000, 0.046]
+- Translation: [-1.511, 16.174, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0237900, 0.9997170]
+            in RPY [-0.0000000, -0.0000000, 0.0475845]
 
 scan_24 to scan_23
-- Translation: [-0.741, 24.727, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, -0.058, 0.998]
-            in RPY [0.000, 0.000, -0.115]
+- Translation: [-0.703, 24.723, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0578004, 0.9983282]
+            in RPY [0.0000000, -0.0000000, -0.1156653]
 
 scan_25 to scan_24
 - Translation: [-2.811, 20.350, 0.000]
@@ -127,6 +132,11 @@ scan_27 to scan_26
 - Translation: [-2.498, 24.157, 0.000]
 - Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0365919, 0.9993303]
             in RPY [-0.0000000, -0.0000000, 0.0732000]
+
+scan_28 to scan_28
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY [0.000, -0.000, 0.000]
 
 scan_29 to scan_28
 - Translation: [-0.319, 6.342, 0.000]
@@ -158,6 +168,233 @@ scan_34 to scan_33
 - Rotation: in Quaternion [0.0000000, 0.0000000, -0.0657856, 0.9978338]
             in RPY [0.0000000, 0.0000000, -0.1316662]
 
+scan_35 to scan_34
+- Translation: [-0.465, 4.343, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0131145, 0.9999140]
+            in RPY [-0.0000000, 0.0000000, 0.0262298]
 
+scan_36 to scan_35
+- Translation: [-0.632, 5.395, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0342700, 0.9994126]
+            in RPY [0.0000000, 0.0000000, -0.0685534]
 
+scan_37 to scan_36
+- Translation: [-0.942, 6.261, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0059973, 0.9999820]
+            in RPY [-0.0000000, -0.0000000, 0.0119947]
+
+scan_38 to scan_37
+- Translation: [0.689, 7.630, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0325341, 0.9994706]
+            in RPY [-0.0000000, -0.0000000, 0.0650797]
+
+scan_39 to scan_38
+- Translation: [-1.818, 6.338, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0506363, 0.9987172]
+            in RPY [0.0000000, 0.0000000, -0.1013158]
+
+scan_40 to scan_39
+- Translation: [-1.593, 7.851, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0913928, 0.9958149]
+            in RPY [-0.0000000, 0.0000000, 0.1830410]
+
+scan_41 to scan_40
+- Translation: [-0.039, 6.386, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0807624, 0.9967334]
+            in RPY [0.0000000, 0.0000000, -0.1617010]
+
+scan_42 to scan_41
+- Translation: [-0.545, 6.798, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0176557, 0.9998441]
+            in RPY [0.0000000, 0.0000000, -0.0353132]
+
+scan_43 to scan_42
+- Translation: [-1.925, 10.073, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0240148, 0.9997116]
+            in RPY [-0.0000000, 0.0000000, 0.0480342]
+
+scan_45 to scan_45
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY [0.000, -0.000, 0.000]
+
+scan_46 to scan_45
+- Translation: [3.375, 30.328, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0166609, 0.9998612]
+            in RPY [0.0000000, 0.0000000, -0.0333234]
+
+scan_47 to scan_46
+- Translation: [-12.850, 13.977, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.7267556, 0.6868961]
+            in RPY [-0.0000001, 0.0000001, 1.6271737]
+
+scan_48 to scan_47
+- Translation: [-2.367, 26.449, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, 0.0164333, 0.9998650]
+            in RPY [0.0000000, 0.0000000, 0.0328680]
+
+scan_49 to scan_48
+- Translation: [28.877, -17.953, 0.000]
+- Rotation: in Quaternion [0.0000001, 0.0000000, -0.8629535, 0.5052833]
+            in RPY [0.0000000, 0.0000001, -2.0821721]
+
+scan_50 to scan_49
+- Translation: [-34.584, -32.306, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.7086130, 0.7055973]
+            in RPY [-0.0000001, 0.0000001, 1.5750612]
+
+scan_51 to scan_50
+- Translation: [-19.036, -4.200, -0.000]
+- Rotation: in Quaternion [-0.0000001, 0.0000000, 0.8845799, 0.4663886]
+            in RPY [-0.0000000, 0.0000001, 2.1711851]
+
+scan_52 to scan_51
+- Translation: [5.233, 36.974, -0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.7098984, 0.7043041]
+            in RPY [0.0000001, 0.0000001, -1.5787080]
+
+scan_53 to scan_52
+- Translation: [-40.499, -7.874, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.5258836, 0.8505565]
+            in RPY [-0.0000001, 0.0000000, 1.1075073]
+
+scan_54 to scan_54
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY [0.000, -0.000, 0.000]
+
+scan_55 to scan_54
+- Translation: [-3.728, 29.507, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0364993, 0.9993337]
+            in RPY [-0.0000000, 0.0000000, 0.0730148]
+
+scan_56 to scan_55
+- Translation: [-0.006, 0.671, 0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0042170, 0.9999911]
+            in RPY [0.0000000, 0.0000000, -0.0084340]
+
+scan_59 to scan_59
+- Translation: [0.000, 0.000, 0.000]
+- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
+            in RPY [0.000, -0.000, 0.000]
+
+scan_60 to scan_59
+- Translation: [-8.655, 25.602, -0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0622945, 0.9980578]
+            in RPY [-0.0000000, 0.0000000, 0.1246698]
+
+scan_61 to scan_60
+- Translation: [-1.190, 30.806, -0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0147688, 0.9998909]
+            in RPY [0.0000000, 0.0000000, -0.0295387]
+
+scan_62 to scan_61
+- Translation: [-2.768, 26.634, -0.000]
+- Rotation: in Quaternion [0.0000000, 0.0000000, -0.0368890, 0.9993194]
+            in RPY [0.0000000, 0.0000000, -0.0737948]
+
+scan_63 to scan_62
+- Translation: [-9.396, 46.480, -0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0227543, 0.9997411]
+            in RPY [-0.0000000, -0.0000000, 0.0455125]
+
+scan_64 to scan_63
+- Translation: [-29.752, 34.368, -0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.7222703, 0.6916109]
+            in RPY [-0.0000001, 0.0000001, 1.6141586]
+
+scan_65 to scan_64
+- Translation: [-3.450, 33.233, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0188307, 0.9998227]
+            in RPY [-0.0000000, 0.0000000, 0.0376637]
+
+scan_66 to scan_65
+- Translation: [-2.426, 31.226, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0094332, 0.9999555]
+            in RPY [0.0000000, -0.0000000, -0.0188667]
+
+scan_67 to scan_66
+- Translation: [-2.085, 21.677, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0558351, 0.9984400]
+            in RPY [0.0000000, 0.0000000, -0.1117283]
+
+scan_68 to scan_67
+- Translation: [-3.551, 19.043, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0395781, 0.9992165]
+            in RPY [-0.0000000, -0.0000000, 0.0791769]
+
+scan_69 to scan_68
+- Translation: [-4.445, 32.260, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0297539, 0.9995573]
+            in RPY [0.0000000, -0.0000000, -0.0595165]
+
+scan_70 to scan_69
+- Translation: [-4.536, 24.063, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.0140848, 0.9999008]
+            in RPY [-0.0000000, 0.0000000, 0.0281706]
+
+scan_71 to scan_70
+- Translation: [-1.414, 19.206, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.1035609, 0.9946231]
+            in RPY [-0.0000000, 0.0000000, 0.2074938]
+
+scan_72 to scan_71
+- Translation: [-25.127, -1.841, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.6614101, 0.7500244]
+            in RPY [-0.0000001, 0.0000000, 1.4453946]
+
+scan_73 to scan_72
+- Translation: [-1.474, 29.480, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0014251, 0.9999990]
+            in RPY [-0.0000000, -0.0000000, 0.0028503]
+
+scan_74 to scan_73
+- Translation: [-1.521, 31.099, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0145883, 0.9998936]
+            in RPY [-0.0000000, -0.0000000, 0.0291776]
+
+scan_75 to scan_74
+- Translation: [-0.275, 26.062, -0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0030556, 0.9999953]
+            in RPY [0.0000000, -0.0000000, -0.0061113]
+
+scan_76 to scan_75
+- Translation: [-0.782, 22.276, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0559927, 0.9984312]
+            in RPY [0.0000000, -0.0000000, -0.1120440]
+
+scan_77 to scan_76
+- Translation: [-5.479, 35.093, 0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0457667, 0.9989522]
+            in RPY [-0.0000000, -0.0000000, 0.0915654]
+
+scan_78 to scan_77
+- Translation: [-2.721, 44.231, 0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0201001, 0.9997980]
+            in RPY [0.0000000, -0.0000000, -0.0402029]
+
+scan_79 to scan_78
+- Translation: [-3.205, 35.931, -0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.1260638, 0.9920221]
+            in RPY [0.0000000, 0.0000000, -0.2528001]
+
+scan_80 to scan_79
+- Translation: [-13.255, -3.836, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.7776073, 0.6287502]
+            in RPY [-0.0000001, 0.0000001, 1.7817028]
+
+scan_81 to scan_80
+- Translation: [-3.316, 18.627, -0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0182572, 0.9998333]
+            in RPY [-0.0000000, -0.0000000, 0.0365164]
+
+scan_82 to scan_81
+- Translation: [-3.469, 24.534, -0.000]
+- Rotation: in Quaternion [-0.0000000, -0.0000000, 0.0115307, 0.9999335]
+            in RPY [-0.0000000, -0.0000000, 0.0230620]
+
+scan_83 to scan_82
+- Translation: [-1.668, 19.313, -0.000]
+- Rotation: in Quaternion [0.0000000, -0.0000000, -0.0217843, 0.9997627]
+            in RPY [0.0000000, -0.0000000, -0.0435721]
 

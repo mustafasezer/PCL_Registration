@@ -84,30 +84,41 @@ int main()
 
     fstream overall_icp, overall_ndt;
     overall_icp.open("/home/mustafasezer/overall_icp.txt", ios::out);
-    overall_icp << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
+    //overall_icp << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
 
     overall_ndt.open("/home/mustafasezer/overall_ndt.txt", ios::out);
-    overall_ndt << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
+    //overall_ndt << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
 
-    for(int i=1; i<=52; i++){
+    for(int i=19; i<=83; i++){
         if(pcl_tool.transformations[i-1].is_parent){
+            std::cout << "scan_" << i <<  " is a parent transformation" << std::endl;
+            overall_icp << "scan_" << i <<  " to scan_" << i << " \n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
+            overall_ndt << "scan_" << i <<  " to scan_" << i << " \n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
+            continue;
+        }
+        if(pcl_tool.transformations[i-1].ok == false){
+            std::cout << "Transformation problematic, scan_" << i << " is being skipped" << std::endl;
+            continue;
+        }
+        if(pcl_tool.transformations[i-1].parent_id>83 || pcl_tool.transformations[i-1].parent_id<1){
+            std::cout << "Parent id problematic, scan_" << i << " is being skipped" << std::endl;
             continue;
         }
         stringstream target_filename, input_filename;
         target_filename.clear();
         input_filename.clear();
-        input_filename << "/home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_" << i << "_0.1.pcd";
-        target_filename << "/home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_" << pcl_tool.transformations[i-1].parent_id << "_0.1.pcd";
+        input_filename << "/home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_" << i << "_0.1.pcd";
+        target_filename << "/home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_" << pcl_tool.transformations[i-1].parent_id << "_0.1.pcd";
         string strtarget_filename = target_filename.str();
         string strinput_filename = input_filename.str();
         if (!file_exists (strtarget_filename.c_str()))
         {
-            std::cerr << target_filename.str() << "does not exist" << std::endl;
+            std::cerr << target_filename.str() << " does not exist" << std::endl;
             continue;
         }
         else if (!file_exists (strinput_filename.c_str()))
         {
-            std::cerr << input_filename.str() << "does not exist" << std::endl;
+            std::cerr << input_filename.str() << " does not exist" << std::endl;
             continue;
         }
 
@@ -117,8 +128,9 @@ int main()
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_rgb(new pcl::PointCloud<pcl::PointXYZRGB>);
         if (pcl::io::loadPCDFile<pcl::PointXYZRGB> (input_filename.str(), *cloud_in_rgb) == -1) //* load the file
         {
-            PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
-            return (-1);
+            string temp(input_filename.str());
+            PCL_ERROR ("Couldn't read %s\n", temp.c_str());
+            continue;
         }
         pcl::PointCloud<PointT>::Ptr cloud_in(new pcl::PointCloud<PointT>);
         pcl::copyPointCloud(*cloud_in_rgb, *cloud_in);
@@ -135,8 +147,9 @@ int main()
         pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_targ_rgb(new pcl::PointCloud<pcl::PointXYZRGB>);
         if (pcl::io::loadPCDFile<pcl::PointXYZRGB> (target_filename.str(), *cloud_targ_rgb) == -1) //* load the file
         {
-            PCL_ERROR ("Couldn't read file test_pcd.pcd \n");
-            return (-1);
+            string temp(target_filename.str());
+            PCL_ERROR ("Couldn't read %s\n", temp.c_str());
+            continue;
         }
         pcl::PointCloud<PointT>::Ptr cloud_targ(new pcl::PointCloud<PointT>);
         pcl::copyPointCloud(*cloud_targ_rgb, *cloud_targ);
@@ -242,6 +255,8 @@ int main()
         cloud_in.reset();
         cloud_targ.reset();
         cloud_in_transformed.reset();
+        cloud_in_rgb.reset();
+        cloud_targ_rgb.reset();
     }
     icp_result.close();
     ndt_result.close();
@@ -450,3 +465,53 @@ pcl_tool.rgbVis(cloud_inp);*/
     //std::cout << "Parent: " << pcl_tool.transformations[i].is_parent << std::endl << std::endl;
 }
 return 0;*/
+
+
+
+/*pcl::PointCloud<pcl::PointXYZ>::Ptr cloud__(new pcl::PointCloud<pcl::PointXYZ>);
+cout << "Reading" << endl;
+pcl::io::loadPCDFile<pcl::PointXYZ> ("/home/mustafasezer/dataset/Original/scan_79.pcd", *cloud__);
+for(float j=1.5; j<3.5; ){
+    cout << "Getting Slice" << endl;
+    pcl::PointCloud<PointT>::Ptr cloud_in_f__ = pcl_tool.getSlice(cloud__, 3.5+j, 4.5+j);
+    stringstream filename2_;
+    filename2_ << "/home/mustafasezer/dataset/Original_Projected_" << 3.5+j << "_" << 4.5+j << "/scan_" << i << ".pcd";
+    cout << filename2_.str() << endl;
+    pcl_tool.savePCD(pcl_tool.projectPCD(cloud_in_f__, 0.0, 0.0, 1.0, 0.0), filename2_.str());
+    //pcl::io::savePLYFile(filename2.str(), *pcl_tool.projectPCD(cloud_in_f, 0.0, 0.0, 1.0, 0.0));
+    j+=1.5;
+}
+continue;*/
+
+
+
+/*//Check dataset
+stringstream input_filename_;
+input_filename_ << "/home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_" << i << "_0.1.pcd";
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_rgb_(new pcl::PointCloud<pcl::PointXYZRGB>);
+if (pcl::io::loadPCDFile<pcl::PointXYZRGB> (input_filename_.str(), *cloud_in_rgb_) == -1) //* load the file
+{
+    string temp(input_filename_.str());
+    PCL_ERROR ("Couldn't read %s\n", temp.c_str());
+    continue;
+}
+pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_f = pcl_tool.getSliceRGB(cloud_in_rgb_, 3, 5);
+stringstream filename2;
+filename2 << "/home/mustafasezer/dataset/Downsampled_scaled_Projected_" << 3.5 << "_" << 4.5 << "/scan_" << i << "_1.75.pcd";
+cout << filename2.str() << endl;
+pcl::PointCloud<PointT>::Ptr cloud_in_f_(new pcl::PointCloud<PointT>);
+pcl::copyPointCloud(*cloud_in_f, *cloud_in_f_);
+pcl_tool.savePCD(pcl_tool.projectPCD(cloud_in_f_, 0.0, 0.0, 1.0, 0.0), filename2.str());
+for(float j=0; j<1.5; ){
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_f = pcl_tool.getSliceRGB(cloud_in_rgb_, 3.5+j, 4.5+j);
+    stringstream filename2;
+    filename2 << "/home/mustafasezer/dataset/Downsampled_scaled_Projected_" << 3.5+j << "_" << 4.5+j << "/scan_" << i << ".pcd";
+    cout << filename2.str() << endl;
+    pcl::PointCloud<PointT>::Ptr cloud_in_f_(new pcl::PointCloud<PointT>);
+    pcl::copyPointCloud(*cloud_in_f, *cloud_in_f_);
+    pcl_tool.savePCD(pcl_tool.projectPCD(cloud_in_f_, 0.0, 0.0, 1.0, 0.0), filename2.str());
+    j+=1.5;
+}
+cloud_in_rgb_.reset();
+continue;
+*/

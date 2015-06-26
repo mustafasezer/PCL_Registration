@@ -36,8 +36,8 @@
 
 using namespace std;
 
-float MAX_CORRESPONDENCE_INIT = 1.7;
-float MAX_CORRESPONDENCE_STEP = 0.3;
+float MAX_CORRESPONDENCE_INIT = 1.6;
+float MAX_CORRESPONDENCE_STEP = 0.1;
 
 struct timespec t1_, t2_;
 double elapsed_time_;
@@ -717,7 +717,7 @@ Eigen::Matrix4f pcl_tools::pairAlign (const PointCloud::Ptr cloud_src, const Poi
     Eigen::Matrix4f Ti = Eigen::Matrix4f::Identity (), prev, targetToSource;
     PointCloudWithNormals::Ptr reg_result = points_with_normals_src;
     reg.setMaximumIterations (100);
-    for (int i = 0; i < 5; ++i)
+    for (int i = 0; i < 15; ++i)
     {
         PCL_INFO ("Iteration Nr. %d.\n", i);
 
@@ -819,6 +819,7 @@ int pcl_tools::apply_icp(string path_in, string path_out){
 
 Eigen::Matrix4f pcl_tools::apply_ndt(pcl::PointCloud<PointT>::Ptr cloud_in, pcl::PointCloud<PointT>::Ptr target_cloud, Eigen::Matrix4f init_guess){
 
+    return init_guess;
 
     //start_timer();
     // Initializing Normal Distributions Transform (NDT).
