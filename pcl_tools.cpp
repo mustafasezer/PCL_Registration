@@ -36,7 +36,7 @@
 
 using namespace std;
 
-float MAX_CORRESPONDENCE_INIT = 1.6;
+float MAX_CORRESPONDENCE_INIT = 1.7;
 float MAX_CORRESPONDENCE_STEP = 0.1;
 
 struct timespec t1_, t2_;
