@@ -6,6 +6,7 @@
 #include <pcl/filters/voxel_grid.h>
 #include <string>
 #include <sstream>
+#include <vector>
 
 
 
@@ -84,12 +85,10 @@ int main()
 
     fstream overall_icp, overall_ndt;
     overall_icp.open("/home/mustafasezer/overall_icp.txt", ios::out);
-    //overall_icp << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
 
     overall_ndt.open("/home/mustafasezer/overall_ndt.txt", ios::out);
-    //overall_ndt << "scan_1 to scan_1\n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
 
-    for(int i=19; i<=83; i++){
+    for(int i=1; i<=pcl_tool.MAX_NUM_SCANS; i++){
         if(pcl_tool.transformations[i-1].is_parent){
             std::cout << "scan_" << i <<  " is a parent transformation" << std::endl;
             overall_icp << "scan_" << i <<  " to scan_" << i << " \n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
@@ -225,7 +224,7 @@ int main()
         pcl_tool.transformations[i-1].T_ndt = pcl_tool.transformations[pcl_tool.transformations[i-1].parent_id-1].T_ndt * transform_matrix_ndt * pcl_tool.transformations[i-1].init_guess;
         pcl_tool.transformations[i-1].completed = true;
 
-        //pcl_tool.transformations[i-1].T = pcl_tool.transformations[i-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;      
+        //pcl_tool.transformations[i-1].T = pcl_tool.transformations[i-1].T * transform_matrix_icp * pcl_tool.transformations[i-1].init_guess;
 
         //RGB Version
         //pcl_tool.savePCD((pcl_tool.transform_pcd(cloud_in, pcl_tool.transformations[i-1].T)), output_filename.str());
@@ -515,3 +514,40 @@ for(float j=0; j<1.5; ){
 cloud_in_rgb_.reset();
 continue;
 */
+
+
+//Get z slice of final clouds
+/*std::vector<string> filenames;
+filenames.push_back("/home/mustafasezer/scan_1_18.pcd");
+filenames.push_back("/home/mustafasezer/scan_28_43.pcd");
+filenames.push_back("/home/mustafasezer/scan_45_53.pcd");
+filenames.push_back("/home/mustafasezer/scan_54_56.pcd");
+filenames.push_back("/home/mustafasezer/scan_59_66.pcd");
+
+for(int i=2; i<filenames.size(); i++){
+    pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloud_in_rgb__(new pcl::PointCloud<pcl::PointXYZRGB>);
+    cout << "Reading " << filenames[i] << endl;
+    if (pcl::io::loadPCDFile<pcl::PointXYZRGB> (filenames[i], *cloud_in_rgb__) == -1) //* load the file
+    {
+        string temp(filenames[i]);
+        PCL_ERROR ("Couldn't read %s\n", temp.c_str());
+        //continue;
+    }
+    pcl::PointCloud<PointT>::Ptr cloud_in__(new pcl::PointCloud<PointT>);
+    pcl::copyPointCloud(*cloud_in_rgb__, *cloud_in__);
+    cout << "Getting z slice" << endl;
+    pcl::PointCloud<PointT>::Ptr cloud_in_f__ = pcl_tool.getSlice(cloud_in__, 3.5, 4.5);
+    string myfilename(filenames[i]);
+    myfilename.insert(myfilename.find_last_of(".pcd")-3, "_projected");
+    cout << "Saving " << myfilename << endl;
+    pcl_tool.savePCD(pcl_tool.projectPCD(cloud_in_f__, 0.0, 0.0, 1.0, 0.0), myfilename);
+}*/
+
+//for(float j=1.5; j<3.5; ){
+//    pcl::PointCloud<PointT>::Ptr cloud_in_f = pcl_tool.getSlice(cloud, 3.5+j, 4.5+j);
+//    stringstream filename2;
+//    filename2 << "home/mustafasezer/scan_1_18.pcd";
+//   cout << myfilename << endl;
+//   pcl_tool.savePCD(pcl_tool.projectPCD(cloud_in__, 0.0, 0.0, 1.0, 0.0), myfilename);
+//    j+=1.5;
+//}
