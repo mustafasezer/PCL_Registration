@@ -36,7 +36,7 @@
 
 using namespace std;
 
-float MAX_CORRESPONDENCE_INIT = 1.7;
+float MAX_CORRESPONDENCE_INIT = 1.0;
 float MAX_CORRESPONDENCE_STEP = 0.1;
 
 struct timespec t1_, t2_;
@@ -97,7 +97,7 @@ pcl_tools::pcl_tools()
     transformations[0].T.setIdentity();
     transformations[0].completed = true;
     transformations[0].is_parent = true;*/
-    for(int i=0; i<83; i++){
+    for(int i=0; i<MAX_NUM_SCANS; i++){
         transformations[i].completed = false;
         transformations[i].is_parent = false;
         transformations[i].T.setIdentity();
@@ -189,11 +189,11 @@ int pcl_tools::topMostParent(int id){
 }
 
 
-int pcl_tools::getInitialGuesses(){
+int pcl_tools::getInitialGuesses(string filename){
     string tline;
     fstream fid;
     int input, target;
-    fid.open("/home/mustafasezer/Initial Guesses.txt", ios::in);
+    fid.open(filename.c_str(), ios::in);
     getline(fid, tline);
     while(!fid.eof()){
         while(tline.find("scan_")==string::npos && !fid.eof()){
@@ -227,18 +227,20 @@ int pcl_tools::getInitialGuesses(){
             return 1;
         }
         if(input==target){
-            transformations[input-1].init_guess.setIdentity();
+            //transformations[input-1].init_guess.setIdentity();
             transformations[input-1].completed = true;
             transformations[input-1].is_parent = true;
-            transformations[input-1].parent_id = target;
-            transformations[input-1].ok = true;
-            continue;
+            //transformations[input-1].parent_id = target;
+            //transformations[input-1].ok = true;
+            //continue;
+        }
+        else{
+            transformations[input-1].is_parent = false;
         }
         Eigen::Vector3f translation_vector(t1, t2, t3);
         Eigen::Matrix3f rotation_matrix = quaternion_to_rotation(x, y, z, w);
         transformations[input-1].parent_id = target;
         transformations[input-1].init_guess = createTransformationMatrix(rotation_matrix, translation_vector);
-        transformations[input-1].is_parent = false;
         transformations[input-1].ok = true;
     }
     fid.close();
@@ -273,12 +275,11 @@ Eigen::Matrix4f pcl_tools::getTransformation(int input, int target){
 }
 
 
-int pcl_tools::getOverallTransformations(){
-    Eigen::Matrix4f transformation_matrices[83];
+int pcl_tools::getTransformations(string filename, Eigen::Matrix4f transformation_matrices[]){
     string tline;
     fstream fid;
     int input, target;
-    fid.open("/home/mustafasezer/overall.txt", ios::in);
+    fid.open(filename.c_str(), ios::in);
     getline(fid, tline);
     while(!fid.eof()){
         while(tline.find("scan_")==string::npos && !fid.eof()){
@@ -290,13 +291,50 @@ int pcl_tools::getOverallTransformations(){
             return 1;
         }
         sscanf(tline.c_str(), "scan_%d to scan_%d", &input, &target);
-        Eigen::Matrix4f transformation;
         for(int i=0; i<4; i++){
             getline(fid, tline);
             sscanf(tline.c_str(), "%f %f %f %f", &transformation_matrices[input-1](i,0), &transformation_matrices[input-1](i,1), &transformation_matrices[input-1](i,2), &transformation_matrices[input-1](i,3));
         }
     }
     fid.close();
+    return 0;
+}
+
+int pcl_tools::computeGlobalTransformations(){
+    fstream overall_icp, overall_ndt;
+    overall_icp.open("/home/mustafasezer/overall_icp.txt", ios::out);
+    overall_ndt.open("/home/mustafasezer/overall_ndt.txt", ios::out);
+
+    for(int i=0; i<MAX_NUM_SCANS; i++){
+        if(transformations[i-1].is_parent){
+            transformations[i-1].T = transformations[i-1].init_guess;
+            transformations[i-1].T_ndt = transformations[i-1].init_guess;
+            overall_icp << "scan_" << i << " to scan_" << i << std::endl;
+            overall_icp << transformations[i-1].T << std::endl << std::endl;
+            overall_ndt << "scan_" << i << " to scan_" << i << std::endl;
+            overall_ndt << transformations[i-1].T_ndt << std::endl << std::endl;
+            continue;
+        }
+        if(transformations[transformations[i-1].parent_id-1].completed==false){
+            std::cerr << "Parent transformation is not completed for scan_" << i << std::endl;
+            continue;
+        }
+        transformations[i-1].T = transformations[transformations[i-1].parent_id-1].T * transformations_icp[i-1] * transformations[i-1].init_guess;
+        transformations[i-1].T_ndt = transformations[transformations[i-1].parent_id-1].T_ndt * transformations_ndt[i-1] * transformations[i-1].init_guess;
+        transformations[i-1].completed = true;
+
+        int top_parent = topMostParent(i);
+        if(top_parent>=1 && top_parent<=MAX_NUM_SCANS){
+            overall_icp << "scan_" << i << " to scan_" << top_parent << std::endl;
+            overall_icp << transformations[i-1].T << std::endl << std::endl;
+
+            overall_ndt << "scan_" << i << " to scan_" << top_parent << std::endl;
+            overall_ndt << transformations[i-1].T_ndt << std::endl << std::endl;
+        }
+    }
+    overall_icp.close();
+    overall_ndt.close();
+
     return 0;
 }
 
@@ -716,8 +754,8 @@ Eigen::Matrix4f pcl_tools::pairAlign (const PointCloud::Ptr cloud_src, const Poi
     // Run the same optimization in a loop and visualize the results
     Eigen::Matrix4f Ti = Eigen::Matrix4f::Identity (), prev, targetToSource;
     PointCloudWithNormals::Ptr reg_result = points_with_normals_src;
-    reg.setMaximumIterations (100);
-    for (int i = 0; i < 15; ++i)
+    reg.setMaximumIterations (1000);
+    for (int i = 0; i < 10; ++i)
     {
         PCL_INFO ("Iteration Nr. %d.\n", i);
 
@@ -991,7 +1029,7 @@ int pcl_tools::scale_pcd(float scaling_factor){
     //double elapsed_time;
     //volatile long long i;
 
-    for(int i=65; i<=83; i++){
+    for(int i=65; i<=MAX_NUM_SCANS; i++){
         /*stringstream check_label_filename;
         check_label_filename.clear();
         check_label_filename << "/home/mustafasezer/dataset/Original/final_labeled_images/scan_" << i << "_label.png";
@@ -1049,7 +1087,7 @@ int pcl_tools::downsample_pcd(){
     //double elapsed_time;
     //volatile long long i;
 
-    for(int i=68; i<=83; i++){
+    for(int i=1; i<=MAX_NUM_SCANS; i++){
 
         stringstream check_label_filename;
         check_label_filename.clear();

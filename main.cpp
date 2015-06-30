@@ -20,8 +20,6 @@
 
 #include "pcl_tools.h"
 
-#include "cnpy.h"
-
 #include <pcl/filters/crop_box.h>
 #include <pcl/common/common.h>
 
@@ -77,7 +75,12 @@ int main()
 {
     pcl_tools pcl_tool;
 
-    pcl_tool.getInitialGuesses();
+    pcl_tool.getInitialGuesses("/home/mustafasezer/Initial Guesses.txt");
+
+    /*pcl_tool.getTransformations("/home/mustafasezer/icp_results.txt", pcl_tool.transformations_icp);
+    pcl_tool.getTransformations("/home/mustafasezer/ndt_results.txt", pcl_tool.transformations_ndt);
+
+    pcl_tool.computeGlobalTransformations();*/
 
     fstream icp_result, ndt_result;
     icp_result.open("/home/mustafasezer/icp_results.txt", ios::out);
@@ -85,14 +88,18 @@ int main()
 
     fstream overall_icp, overall_ndt;
     overall_icp.open("/home/mustafasezer/overall_icp.txt", ios::out);
-
     overall_ndt.open("/home/mustafasezer/overall_ndt.txt", ios::out);
+
 
     for(int i=1; i<=pcl_tool.MAX_NUM_SCANS; i++){
         if(pcl_tool.transformations[i-1].is_parent){
             std::cout << "scan_" << i <<  " is a parent transformation" << std::endl;
             overall_icp << "scan_" << i <<  " to scan_" << i << " \n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
             overall_ndt << "scan_" << i <<  " to scan_" << i << " \n1 0 0 0\n0 1 0 0\n0 0 1 0\n0 0 0 1\n\n";
+            icp_result << "scan_" << i << " to scan_" << i << std::endl;
+            icp_result << pcl_tool.transformations[i-1].init_guess << std::endl << std::endl;
+            ndt_result << "scan_" << i << " to scan_" << i << std::endl;
+            ndt_result << pcl_tool.transformations[i-1].init_guess << std::endl << std::endl;
             continue;
         }
         if(pcl_tool.transformations[i-1].ok == false){

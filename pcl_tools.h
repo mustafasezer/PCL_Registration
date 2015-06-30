@@ -55,8 +55,9 @@ public:
     pcl::PointCloud<PointT>::Ptr projectPCD(pcl::PointCloud<PointT>::Ptr cloud, float a, float b, float c, float d);
     Eigen::Matrix4f getInitialGuess(int input, int target);
     Eigen::Matrix4f getTransformation(int input, int target);
-    int getInitialGuesses();
-    int getOverallTransformations();
+    int getInitialGuesses(std::string filename);
+    int getTransformations(std::string filename, Eigen::Matrix4f transformation_matrices[]);
+    int computeGlobalTransformations();
     int topMostParent(int id);
 
     void rgbVis (pcl::PointCloud<pcl::PointXYZRGB>::ConstPtr cloud);
@@ -70,6 +71,7 @@ public:
     //std::vector<struct transformation_relation> transformations;
 
     struct transformation_relation transformations[83];
+    Eigen::Matrix4f transformations_icp[83], transformations_ndt[83];
 
 };
 
