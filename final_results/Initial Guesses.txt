@@ -214,9 +214,9 @@ scan_43 to scan_42
             in RPY [-0.0000000, 0.0000000, 0.0480342]
 
 scan_45 to scan_45
-- Translation: [0.000, 0.000, 0.000]
-- Rotation: in Quaternion [0.000, 0.000, 0.000, 1.000]
-            in RPY [0.000, -0.000, 0.000]
+- Translation: [-483.448, -103.618, 0.000]
+- Rotation: in Quaternion [-0.0000000, 0.0000000, 0.5270274, 0.8498483]
+            in RPY [-0.0000001, 0.0000000, 1.1101979]
 
 scan_46 to scan_45
 - Translation: [3.375, 30.328, 0.000]
