@@ -1,0 +1,477 @@
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.146905 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.124048 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 34.2179
+NDT completed in: 1594.72 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 109.659 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.127597 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.139953 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 55.6289
+NDT completed in: 1521.66 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 100.18 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.206646 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.133489 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 24.0077
+NDT completed in: 4774.01 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 116.405 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.117008 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.121993 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.214914
+NDT completed in: 1439.38 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 147.353 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_6_0.1.pcd
+Input cloud loaded in: 0.139258 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Target cloud loaded in: 0.119949 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 101.167
+NDT completed in: 1703.95 seconds
+Aligning scan_6 to scan_5
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 184.072 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_7_0.1.pcd
+Input cloud loaded in: 0.130923 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_6_0.1.pcd
+Target cloud loaded in: 0.144284 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 51.381
+NDT completed in: 2393.9 seconds
+Aligning scan_7 to scan_6
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 152.142 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_8_0.1.pcd
+Input cloud loaded in: 0.168946 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_7_0.1.pcd
+Target cloud loaded in: 0.13523 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 25.0649
+NDT completed in: 3493.72 seconds
+Aligning scan_8 to scan_7
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 128.288 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_9_0.1.pcd
+Input cloud loaded in: 0.184113 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_8_0.1.pcd
+Target cloud loaded in: 0.169243 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 20.2353
+NDT completed in: 4328.82 seconds
+Aligning scan_9 to scan_8
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 134.56 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_10_0.1.pcd
+Input cloud loaded in: 0.140419 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_9_0.1.pcd
+Target cloud loaded in: 0.181627 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 4.43285
+NDT completed in: 1416.82 seconds
+Aligning scan_10 to scan_9
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 106.812 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_11_0.1.pcd
+Input cloud loaded in: 0.100053 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_10_0.1.pcd
+Target cloud loaded in: 0.145713 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 17.111
+NDT completed in: 1628.3 seconds
+Aligning scan_11 to scan_10
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 96.0423 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_12_0.1.pcd
+Input cloud loaded in: 0.10844 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_11_0.1.pcd
+Target cloud loaded in: 0.101235 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 65.6135
+NDT completed in: 1972.97 seconds
+Aligning scan_12 to scan_11
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 466.095 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_13_0.1.pcd
+Input cloud loaded in: 0.0792853 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_12_0.1.pcd
+Target cloud loaded in: 0.109916 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.889476
+NDT completed in: 1576.98 seconds
+Aligning scan_13 to scan_12
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 165.723 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_14_0.1.pcd
+Input cloud loaded in: 0.0815864 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_13_0.1.pcd
+Target cloud loaded in: 0.0812267 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.938745
+NDT completed in: 4172.26 seconds
+Aligning scan_14 to scan_13
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 133.356 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_15_0.1.pcd
+Input cloud loaded in: 0.110591 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_14_0.1.pcd
+Target cloud loaded in: 0.0829484 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 8.30383
+NDT completed in: 3372.44 seconds
+Aligning scan_15 to scan_14
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 96.7397 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_16_0.1.pcd
+Input cloud loaded in: 0.153526 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_15_0.1.pcd
+Target cloud loaded in: 0.114524 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 6.77494
+NDT completed in: 5301.39 seconds
+Aligning scan_16 to scan_15
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 219.305 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_17_0.1.pcd
+Input cloud loaded in: 0.120314 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_16_0.1.pcd
+Target cloud loaded in: 0.155928 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 7.40951
+NDT completed in: 2224.07 seconds
+Aligning scan_17 to scan_16
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 74.2638 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_18_0.1.pcd
+Input cloud loaded in: 0.140022 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_17_0.1.pcd
+Target cloud loaded in: 0.125529 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 6.91851
+NDT completed in: 3407.91 seconds
+Aligning scan_18 to scan_17
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 153.579 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_19_0.1.pcd
+Input cloud loaded in: 0.166655 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_18_0.1.pcd
+Target cloud loaded in: 0.145952 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 20.4309
+NDT completed in: 4693.36 seconds
+Aligning scan_19 to scan_18
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 144.689 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Input cloud loaded in: 0.149528 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_19_0.1.pcd
+Target cloud loaded in: 0.168329 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 1.40622
+NDT completed in: 4851.44 seconds
+Aligning scan_20 to scan_19
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 275.803 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.115441 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.149186 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 1.13553
+NDT completed in: 2060.65 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 133.014 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.138856 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.120461 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 53.733
+NDT completed in: 1947.16 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 162.297 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.103417 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.138058 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 6.38534
+NDT completed in: 2117.73 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 67.4054 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.151039 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.104885 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 5.54125
+NDT completed in: 1782.2 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 88.7003 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.156968 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.151029 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 2.48738
+NDT completed in: 1690.52 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 101.604 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.146146 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.158186 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.468766
+NDT completed in: 2685.73 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 149.556 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.13528 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.145027 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 38.3269
+NDT completed in: 3128.49 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 79.4425 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_29_0.1.pcd
+Input cloud loaded in: 0.131698 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_28_0.1.pcd
+Target cloud loaded in: 0.118922 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.578549
+NDT completed in: 1549.63 seconds
+Aligning scan_29 to scan_28
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 167.213 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_30_0.1.pcd
+Input cloud loaded in: 0.121302 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_29_0.1.pcd
+Target cloud loaded in: 0.113298 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 45.6364
+NDT completed in: 1331.38 seconds
+Aligning scan_30 to scan_29
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 147.135 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_31_0.1.pcd
+Input cloud loaded in: 0.132834 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_30_0.1.pcd
+Target cloud loaded in: 0.122069 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 11.9965
+NDT completed in: 2066.11 seconds
+Aligning scan_31 to scan_30
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 232.193 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_32_0.1.pcd
+Input cloud loaded in: 0.130462 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_31_0.1.pcd
+Target cloud loaded in: 0.138133 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.133893
+NDT completed in: 2863.63 seconds
+Aligning scan_32 to scan_31
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 242.912 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_33_0.1.pcd
+Input cloud loaded in: 0.271552 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_32_0.1.pcd
+Target cloud loaded in: 0.137055 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.479518
+NDT completed in: 1762.92 seconds
+Aligning scan_33 to scan_32
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 116.516 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_34_0.1.pcd
+Input cloud loaded in: 0.251049 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_33_0.1.pcd
+Target cloud loaded in: 0.117923 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 0.984306
+NDT completed in: 1585.35 seconds
+Aligning scan_34 to scan_33
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 154.673 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_35_0.1.pcd
+Input cloud loaded in: 0.26407 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_34_0.1.pcd
+Target cloud loaded in: 0.113206 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 1.42032
+NDT completed in: 1409.88 seconds
+Aligning scan_35 to scan_34
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 71.7878 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_36_0.1.pcd
+Input cloud loaded in: 0.249929 seconds
+Reading target cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_35_0.1.pcd
+Target cloud loaded in: 0.106646 seconds
+Applying NDT
+Normal Distributions Transform has converged:1 score: 1.04636
+NDT completed in: 1020.94 seconds
+Aligning scan_36 to scan_35
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Pair aligned in: 58.5615 seconds
+Reading input cloud /home/mustafasezer/dataset/downsampled_scaled_rgbclouds/cloud_37_0.1.pcd

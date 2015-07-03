@@ -1,0 +1,2204 @@
+Reached the end of initial guess file
+scan_1 is a parent transformation
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.151484 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.128972 seconds
+Applying NDT
+NDT completed in: 1.4956e-05 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 210.362 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.131845 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.13846 seconds
+Applying NDT
+NDT completed in: 1.4844e-05 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 172.035 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.207892 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.130877 seconds
+Applying NDT
+NDT completed in: 1.4473e-05 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 286.71 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.120223 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125268 seconds
+Applying NDT
+NDT completed in: 1.5271e-05 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 225.99 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.119004 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.152626 seconds
+Applying NDT
+NDT completed in: 1.4956e-05 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 286.892 seconds
+Parent transformation is not completed for scan_21
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.13885 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.118387 seconds
+Applying NDT
+NDT completed in: 1.4295e-05 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 314.422 seconds
+Parent transformation is not completed for scan_22
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.106433 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.138713 seconds
+Applying NDT
+NDT completed in: 1.503e-05 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 85.215 seconds
+Parent transformation is not completed for scan_23
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.153712 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.105528 seconds
+Applying NDT
+NDT completed in: 1.3966e-05 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 209.047 seconds
+Parent transformation is not completed for scan_24
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.157839 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.152738 seconds
+Applying NDT
+NDT completed in: 1.3857e-05 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 174.464 seconds
+Parent transformation is not completed for scan_25
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.144116 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.159142 seconds
+Applying NDT
+NDT completed in: 1.4787e-05 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 223.802 seconds
+Parent transformation is not completed for scan_26
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.137281 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.145456 seconds
+Applying NDT
+NDT completed in: 1.4234e-05 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 139.214 seconds
+Parent transformation is not completed for scan_27
+scan_1 is a parent transformation
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.142342 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125017 seconds
+Applying NDT
+NDT completed in: 1.4323e-05 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 259.061 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.131705 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.138808 seconds
+Applying NDT
+NDT completed in: 1.4549e-05 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 210.565 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.207538 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.130889 seconds
+Applying NDT
+NDT completed in: 1.4486e-05 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 350.555 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.120431 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125395 seconds
+Applying NDT
+NDT completed in: 1.4922e-05 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 250.544 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.118657 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.152466 seconds
+Applying NDT
+NDT completed in: 7.585e-06 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 323.948 seconds
+Parent transformation is not completed for scan_21
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.141696 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.122269 seconds
+Applying NDT
+NDT completed in: 1.457e-05 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 393.619 seconds
+Parent transformation is not completed for scan_22
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.108588 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.14328 seconds
+Applying NDT
+NDT completed in: 1.5242e-05 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 122.445 seconds
+Parent transformation is not completed for scan_23
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.158642 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.108641 seconds
+Applying NDT
+NDT completed in: 1.5509e-05 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 256.404 seconds
+Parent transformation is not completed for scan_24
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.162211 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.158182 seconds
+Applying NDT
+NDT completed in: 8.21e-06 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 215.773 seconds
+Parent transformation is not completed for scan_25
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.152848 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.161237 seconds
+Applying NDT
+NDT completed in: 1.4914e-05 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 264.065 seconds
+Parent transformation is not completed for scan_26
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.139085 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.146625 seconds
+Applying NDT
+NDT completed in: 1.4858e-05 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 174.585 seconds
+Parent transformation is not completed for scan_27
+scan_1 is a parent transformation
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.139069 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125121 seconds
+Applying NDT
+NDT completed in: 1.4785e-05 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 408.19 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.138121 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.145698 seconds
+Applying NDT
+NDT completed in: 1.414e-05 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 360.571 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.225881 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.137745 seconds
+Applying NDT
+NDT completed in: 7.593e-06 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 580.345 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.13446 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.134762 seconds
+Applying NDT
+NDT completed in: 1.5605e-05 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 356.912 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.128344 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.163561 seconds
+Applying NDT
+NDT completed in: 1.5768e-05 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 449.785 seconds
+Parent transformation is not completed for scan_21
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.146721 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.124198 seconds
+Applying NDT
+NDT completed in: 8.509e-06 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 697.28 seconds
+Parent transformation is not completed for scan_22
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.116476 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.147868 seconds
+Applying NDT
+NDT completed in: 1.5638e-05 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 209.947 seconds
+Parent transformation is not completed for scan_23
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.160215 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.111263 seconds
+Applying NDT
+NDT completed in: 7.507e-06 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 387.768 seconds
+Parent transformation is not completed for scan_24
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.158198 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.153359 seconds
+Applying NDT
+NDT completed in: 1.4511e-05 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 313.509 seconds
+Parent transformation is not completed for scan_25
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.144957 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.160568 seconds
+Applying NDT
+NDT completed in: 1.4757e-05 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 366.569 seconds
+Parent transformation is not completed for scan_26
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.147148 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.156368 seconds
+Applying NDT
+NDT completed in: 8.17e-06 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 320.193 seconds
+Parent transformation is not completed for scan_27
+scan_1 is a parent transformation
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.140584 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125146 seconds
+Applying NDT
+NDT completed in: 1.5026e-05 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 239.587 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.13239 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.139148 seconds
+Applying NDT
+NDT completed in: 1.3853e-05 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 222.842 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.208101 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.132392 seconds
+Applying NDT
+NDT completed in: 1.5209e-05 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 350.842 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.120617 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125618 seconds
+Applying NDT
+NDT completed in: 1.5127e-05 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 257.044 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.118932 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.152933 seconds
+Applying NDT
+NDT completed in: 1.5011e-05 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 279.064 seconds
+Parent transformation is not completed for scan_21
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.140563 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.118858 seconds
+Applying NDT
+NDT completed in: 1.478e-05 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 371.014 seconds
+Parent transformation is not completed for scan_22
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.107879 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.139053 seconds
+Applying NDT
+NDT completed in: 1.4497e-05 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 138.272 seconds
+Parent transformation is not completed for scan_23
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.156117 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.105862 seconds
+Applying NDT
+NDT completed in: 1.4783e-05 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 208.023 seconds
+Parent transformation is not completed for scan_24
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.159561 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.153874 seconds
+Applying NDT
+NDT completed in: 1.4824e-05 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 205.558 seconds
+Parent transformation is not completed for scan_25
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.146897 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.159278 seconds
+Applying NDT
+NDT completed in: 1.4899e-05 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 272.402 seconds
+Parent transformation is not completed for scan_26
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.138618 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.143941 seconds
+Applying NDT
+NDT completed in: 1.483e-05 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Pair aligned in: 154.997 seconds
+Parent transformation is not completed for scan_27
+scan_1 is a parent transformation
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.140912 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125096 seconds
+Applying NDT
+NDT completed in: 1.5156e-05 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 275.338 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.131741 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.139038 seconds
+Applying NDT
+NDT completed in: 1.4232e-05 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 262.408 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.208215 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.130766 seconds
+Applying NDT
+NDT completed in: 1.479e-05 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 419.452 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.120656 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125573 seconds
+Applying NDT
+NDT completed in: 1.455e-05 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 291.73 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.123114 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.15365 seconds
+Applying NDT
+NDT completed in: 1.5004e-05 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 321.194 seconds
+Parent transformation is not completed for scan_21
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.140285 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.118515 seconds
+Applying NDT
+NDT completed in: 1.4804e-05 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 500.541 seconds
+Parent transformation is not completed for scan_22
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.10675 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.139122 seconds
+Applying NDT
+NDT completed in: 1.4694e-05 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 171.572 seconds
+Parent transformation is not completed for scan_23
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.15599 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.105772 seconds
+Applying NDT
+NDT completed in: 1.4742e-05 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 247.986 seconds
+Parent transformation is not completed for scan_24
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.161115 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.154004 seconds
+Applying NDT
+NDT completed in: 1.481e-05 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 252.175 seconds
+Parent transformation is not completed for scan_25
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.146698 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.159115 seconds
+Applying NDT
+NDT completed in: 1.5271e-05 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 315.753 seconds
+Parent transformation is not completed for scan_26
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.138259 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.144106 seconds
+Applying NDT
+NDT completed in: 1.469e-05 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Pair aligned in: 191.921 seconds
+Parent transformation is not completed for scan_27
+scan_1 is a parent transformation
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Input cloud loaded in: 0.140448 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125122 seconds
+Applying NDT
+NDT completed in: 1.5129e-05 seconds
+Aligning scan_2 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 437.466 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Input cloud loaded in: 0.13545 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_2_0.1.pcd
+Target cloud loaded in: 0.14103 seconds
+Applying NDT
+NDT completed in: 1.4506e-05 seconds
+Aligning scan_3 to scan_2
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 402.266 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_4_0.1.pcd
+Input cloud loaded in: 0.213385 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_3_0.1.pcd
+Target cloud loaded in: 0.13098 seconds
+Applying NDT
+NDT completed in: 1.4851e-05 seconds
+Aligning scan_4 to scan_3
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 654.868 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_5_0.1.pcd
+Input cloud loaded in: 0.120563 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_1_0.1.pcd
+Target cloud loaded in: 0.125718 seconds
+Applying NDT
+NDT completed in: 8.317e-06 seconds
+Aligning scan_5 to scan_1
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 413.97 seconds
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Input cloud loaded in: 0.118887 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_20_0.1.pcd
+Target cloud loaded in: 0.152758 seconds
+Applying NDT
+NDT completed in: 1.5052e-05 seconds
+Aligning scan_21 to scan_20
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 456.757 seconds
+Parent transformation is not completed for scan_21
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Input cloud loaded in: 0.140822 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_21_0.1.pcd
+Target cloud loaded in: 0.118724 seconds
+Applying NDT
+NDT completed in: 1.5035e-05 seconds
+Aligning scan_22 to scan_21
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 739.117 seconds
+Parent transformation is not completed for scan_22
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Input cloud loaded in: 0.106743 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_22_0.1.pcd
+Target cloud loaded in: 0.139052 seconds
+Applying NDT
+NDT completed in: 1.4598e-05 seconds
+Aligning scan_23 to scan_22
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 263.481 seconds
+Parent transformation is not completed for scan_23
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Input cloud loaded in: 0.156387 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_23_0.1.pcd
+Target cloud loaded in: 0.105834 seconds
+Applying NDT
+NDT completed in: 1.5026e-05 seconds
+Aligning scan_24 to scan_23
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 399.573 seconds
+Parent transformation is not completed for scan_24
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Input cloud loaded in: 0.163105 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_24_0.1.pcd
+Target cloud loaded in: 0.153754 seconds
+Applying NDT
+NDT completed in: 1.4885e-05 seconds
+Aligning scan_25 to scan_24
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 397.739 seconds
+Parent transformation is not completed for scan_25
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Input cloud loaded in: 0.146695 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_25_0.1.pcd
+Target cloud loaded in: 0.159226 seconds
+Applying NDT
+NDT completed in: 1.4926e-05 seconds
+Aligning scan_26 to scan_25
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 461.041 seconds
+Parent transformation is not completed for scan_26
+Reading input cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_27_0.1.pcd
+Input cloud loaded in: 0.13779 seconds
+Reading target cloud /home/mustafasezer/Desktop/downsampled_scaled_rgbclouds/cloud_26_0.1.pcd
+Target cloud loaded in: 0.144067 seconds
+Applying NDT
+NDT completed in: 1.4964e-05 seconds
+Aligning scan_27 to scan_26
+Iteration Nr. 0.
+Iteration Nr. 1.
+Iteration Nr. 2.
+Iteration Nr. 3.
+Iteration Nr. 4.
+Iteration Nr. 5.
+Iteration Nr. 6.
+Iteration Nr. 7.
+Iteration Nr. 8.
+Iteration Nr. 9.
+Iteration Nr. 10.
+Iteration Nr. 11.
+Iteration Nr. 12.
+Iteration Nr. 13.
+Iteration Nr. 14.
+Iteration Nr. 15.
+Iteration Nr. 16.
+Iteration Nr. 17.
+Iteration Nr. 18.
+Iteration Nr. 19.
+Iteration Nr. 20.
+Iteration Nr. 21.
+Iteration Nr. 22.
+Iteration Nr. 23.
+Iteration Nr. 24.
+Iteration Nr. 25.
+Iteration Nr. 26.
+Iteration Nr. 27.
+Iteration Nr. 28.
+Iteration Nr. 29.
+Iteration Nr. 30.
+Iteration Nr. 31.
+Iteration Nr. 32.
+Iteration Nr. 33.
+Iteration Nr. 34.
+Iteration Nr. 35.
+Iteration Nr. 36.
+Iteration Nr. 37.
+Iteration Nr. 38.
+Iteration Nr. 39.
+Pair aligned in: 387.41 seconds
