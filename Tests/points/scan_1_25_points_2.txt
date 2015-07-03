@@ -1,0 +1,11 @@
+header: 
+  seq: 49
+  stamp: 
+    secs: 1435919301
+    nsecs: 73991544
+  frame_id: base_link
+point: 
+  x: -3.17347550392
+  y: 27.3377628326
+  z: 2.60296559334
+---

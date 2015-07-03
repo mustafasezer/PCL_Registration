@@ -1,0 +1,44 @@
+header: 
+  seq: 30
+  stamp: 
+    secs: 1435918235
+    nsecs: 80039616
+  frame_id: base_link
+point: 
+  x: -8.90444564819
+  y: -31.4057483673
+  z: 13.5054311752
+---
+header: 
+  seq: 31
+  stamp: 
+    secs: 1435918243
+    nsecs: 74982623
+  frame_id: base_link
+point: 
+  x: -8.9473323822
+  y: -31.4713783264
+  z: 12.3194656372
+---
+header: 
+  seq: 32
+  stamp: 
+    secs: 1435918247
+    nsecs: 257669925
+  frame_id: base_link
+point: 
+  x: -8.81109619141
+  y: -32.6383514404
+  z: 12.3166265488
+---
+header: 
+  seq: 33
+  stamp: 
+    secs: 1435918250
+    nsecs: 697852453
+  frame_id: base_link
+point: 
+  x: -8.78150367737
+  y: -32.600189209
+  z: 13.5585441589
+---
